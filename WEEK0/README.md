@@ -1,6 +1,5 @@
 # 0주차
-
-### TL;DR
+### Keyword
 - Gitbook 
 - Git 
 - Github
