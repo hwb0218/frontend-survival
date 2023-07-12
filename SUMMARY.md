@@ -2,4 +2,4 @@
 
 ## Frontend-survival
 
-* [0주차](README.md)
+* [0주차](week0/README.md)
