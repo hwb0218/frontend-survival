@@ -6,6 +6,6 @@
 ### Contents
 - [x] 개발 환경 설정
 - [x] TypeScript
-- [ ] React
+- [x] React
 - [ ] Parcel & EsLint
 - [ ] Testing library
