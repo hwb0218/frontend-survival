@@ -1,0 +1,46 @@
+# React
+
+### Keyword
+1. React란?
+2. React 컴포넌트
+3. React 리렌더링
+4. IoC(Inversion of Control)
+5. Library vs Framework
+
+#### 1. React?
+> 리액트는 사용자 인터페이스(User Interface)를 구축하기 위한 Javascript 라이브러리로 컴포넌트 기반 아기텍처를 통해 **재사용 가능**한 UI를 만듦으로 **생산성**이 증가한다.     
+> 또한 UI의 **변경된 부분만을 업데이트**하여 빠른 사용자 경험을 제공한다. 
+---
+
+#### 2. React 컴포넌트
+> 리액트 애플리케이션 UI를 구성하는 독립적인 단위로      
+> 컴포넌트는 **상태(state)** 를 가질 수 있으며 UI를 표현하고 이벤트를 처리할 수 있다.
+---
+
+#### 3. React 리렌더링
+> React에서의 리렌더링이란 **render함수의 호출**을 의미     
+> 이것은 실제 DOM에서 UI를 다시 그리는것을 말한다.      
+- 상태를 변경한다는 것은 setState함수를 실행할 때 React 업데이트를 트리거하는 것인데 이는 render함수를 호출한다는 의미다.
+- 위와 같은 이유로 props의 변경 여부와 상관없이 모든 하위 컴포넌트가 리렌더링 된다
+  - 생각해보면 함수형 컴포넌트의 return값, 클래스 컴포넌트의 render함수의 JSX문법으로 자식 컴포넌트를 호출하고 있기 때문에 리렌더링 되는것이 당연함
+
+##### props가 변경될 때, 컴포넌트가 업데이트 되지 않는 이유?
+1. props가 setState함수를 통해 올바른 업데이트가 되지 않았을 경우
+2. props의 데이터 참조가 동일할 경우
+
+Javascript의 참조값은 메모리의 주소값(자세히는 조금 더 복잡함, 식별자와 데이터가 저장되는 영역의 개념이 있음)을 복사하기 때문에 동일 메모리공간을 참조하게 되므로 props 객체를 직접 변경하게 될 경우 React가 감지하지 못함
+
+--- 
+
+#### 4. IoC(Inversion of Control)
+> 
+---
+
+#### 5. Library vs Framework
+>
+---
+
+### 추가 정리
+- DOM
+- Virtual DOM
+- 리렌더링 최적화(useMemo, useCallback)
