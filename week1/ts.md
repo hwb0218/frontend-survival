@@ -46,6 +46,16 @@ interface Info {
 
 #### 타입추론 (Type Inference)
 > 변수등에 타입을 따로 지정하지 않아도 타입스크립트가 코드를 분석해 타입을 추론하는 과정을 의미
+```typescript
+const temp = 10;
+// 변수 temp 타입은 number로 추론됨
+```
+##### `Best Common Type`
+여러 표현식의 타입을 비교하여 가장 근접한 타입을 선택하는 규칙
+```typescript
+const foo = [1, null]
+```
+- 타입을 명시적으로 지정하지 않았지만 Best Common Type 규칙을 통해 `(number | null)[]` 타입으로 추론된다.
 
 #### Union Type vs Intersection Type
 #### Optional Parameter
