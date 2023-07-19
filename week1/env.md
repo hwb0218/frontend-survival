@@ -54,7 +54,7 @@
 - **require**/**module.exports**문을 사용
 - CJS Module Loader는 동기적으로 작동
 - 모듈을 동적으로 로딩하거나 조건부 로딩이 가능 (정적 분석이 어려워 런타임에 모듈 의존 관계 파악)
-  ```
+  ```javascript
   // 동적 로딩
   const utilName = /* 동적인 값 */
   const util = require(`./utils/${utilName}`)
