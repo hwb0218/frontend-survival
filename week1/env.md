@@ -18,7 +18,7 @@
 #### package.json / package-lock.json
 > Node.js 프로젝트의 루트 경로에 생성되는 의존성 관리를 위한 파일들
 
-**`1. package.json`**
+##### **`1. package.json`**
 - 프로젝트 메타데이터 포함 
 - 의존성 정보 관리
   - dependencies - 프로덕션 환경에 필요한 패키지들로 빌드 시 번들에 포함
@@ -30,7 +30,7 @@
 > minor - 기존 버전과 호환되며 새로운 기능을 추가할 경우 올림       
 > patch - 기존 버전과 호환되며 버그 수정시 올림 
 
-**`2. package-lock.json`**
+##### **`2. package-lock.json`**
   - 의존성 트리를 고정시켜 다른 환경에서 프로젝트를 설치하거나 협업 시 상호간에 동일한 버전의 패키지를 설치할 수 있다. 
 
 #### node_modules
@@ -41,7 +41,7 @@
 > 로컬에 패키지가 없을 경우 npx를 사용하면 패키지는 전역 환경에 **영구적 다운로드**가 아닌 **일시적으로 다운로드(캐싱)** 되는 것 이다.       
 > 이후 패키지를 실행한 뒤 캐싱된 패키지를 **삭제**한다.
 ---
-#### ES Modules vs CommonJS
+### 3. ES Modules vs CommonJS
 **`1. ESM`**
 - JS 표준 묘둘 시스템
 - **import**/**export**문을 사용
