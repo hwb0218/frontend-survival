@@ -1,6 +1,6 @@
 # 개발 환경
 
-### <span style="color: tomato">Keyword</span>
+### <span style="color: red">Keyword</span>
 1. Node.js
 2. NPM(Node Package Manager)
     - package.json / package-lock.json
@@ -8,14 +8,14 @@
     - npx
 3. ES Modules vs CommonJS
 
-### <span style="color: tomato">1. Node.js</span>
+### <span style="color: red">1. Node.js</span>
 > 구글이 chrome V8 Javascript 엔진을 개발하여 기존에 브라우저 환경에서만 작동하던 JS코드를 서버 측에서도 실행가능한 환경을 제공한 것이 Node.js      
 > 이벤트 기반, 비동기 프로그래밍 모델을 따르며 서버 애플케리케이션 개발에 사용된다.
 --- 
-### <span style="color: tomato">2. NPM(Node Package Manager)</span>
+### <span style="color: red">2. NPM(Node Package Manager)</span>
 > Node.js와 함께 설치되며, 이를 통해 패키지를 설치, 관리 및 공유할 수 있다.
 
-#### <span style="color: dodgerblue">package.json / package-lock.json</span>
+#### <span style="color: blue">package.json / package-lock.json</span>
 > Node.js 프로젝트의 루트 경로에 생성되는 의존성 관리를 위한 파일들
 
 ##### **`1. package.json`**
@@ -33,15 +33,15 @@
 ##### **`2. package-lock.json`**
   - 의존성 트리를 고정시켜 다른 환경에서 프로젝트를 설치하거나 협업 시 상호간에 동일한 버전의 패키지를 설치할 수 있다. 
 
-#### <span style="color: dodgerblue">node_modules</span>
+#### <span style="color: blue">node_modules</span>
 > npm 패키지 매니저로 설치한 패키지들이 저장되는 디렉토리     
 > Github에 올라가지 않도록 .gitignore에 node_modules 디렉토리 지정
-#### <span style="color: dodgerblue">npx</span>
+#### <span style="color: blue">npx</span>
 > npx는 Node.js를 설치하면 npm과 마찬가지로 함께 설치된다.
 > 로컬에 패키지가 없을 경우 npx를 사용하면 패키지는 전역 환경에 **영구적 다운로드**가 아닌 **일시적으로 다운로드(캐싱)** 되는 것 이다.       
 > 이후 패키지를 실행한 뒤 캐싱된 패키지를 **삭제**한다.
 ---
-### <span style="color: tomato">3. ES Modules vs CommonJS
+### <span style="color: red">3. ES Modules vs CommonJS
 
 **`1. ESM`**
 - JS 표준 묘둘 시스템
@@ -69,7 +69,7 @@
   ```
 
 ---
-### <span style="color: tomato">키워드 추가 정리
+### <span style="color: red">키워드 추가 정리
 - Yarn
 - Top-level-await [(관련 링크)](https://fe-developers.kakaoent.com/2022/220728-es2022/)
   > Top-level-await를 사용하면 모듈이 하나의 거대한 async함수 처럼 동작하게 되어 최상위 레벨에서도 비동기 처리가 가능하다.      
