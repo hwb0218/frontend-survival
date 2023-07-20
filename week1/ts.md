@@ -3,10 +3,10 @@
 ### Keyword
 1. REPL
 2. TypeScript
-   - Interface vs Type
-   - 타입 추론
-   - Union Type vs Intersection Type
-   - Optional Parameter
+   - 2-1 Interface vs Type
+   - 2-2 타입 추론
+   - 2-3 Union Type vs Intersection Type
+   - 2-4 Optional Parameter
 
 
 ### 1. REPL
@@ -14,7 +14,8 @@
 > 인터프리터 언어에서 사용되는 대화형 개발 도구 또는 환경으로 터미널에 코드를 입력하면 즉시 실행 결과를 받을 수 있다. 
 ---
 ### 2. TypeScript
-> **TypeScript**는 동적 타입 언어인 JavaScript에 정작 타입을 부여한 언어이다. 브라우저는 **JavaScript** 파일만 실행 가능하므로 변환 과정인 **컴파일**이 필요하다.
+> **TypeScript**는 동적 타입 언어인 JavaScript에 정작 타입을 부여한 언어이다.     
+> 브라우저는 **JavaScript** 파일만 실행 가능하므로 변환 과정인 **컴파일**이 필요하다.
 
 ##### **`왜 타입스크립트를 사용해야할까?`**
 1. 코드 레벨에서 에러의 사전 예방
@@ -24,9 +25,11 @@
 ~~`진짜 2번이 진또베기`~~
 
 VSC 툴의 내부가 TS로 작성되어 있어 TS개발에 최적화되어 있다고 한다.
- 
-#### Interface vs Type
-> Type(Type alias)과 Interface의 결정적 차이는 타입의 **확장(extends)** 가능 여부에 있다.
+
+
+#### 2-1 Interface vs Type
+> TypeScript에서 타입을 정의하는 방법들로 Type(Type alias)과 Interface의        
+> 결정적 차이는 타입의 **확장(extends)** 가능 여부에 있다.
 
 ##### **`1. Interface`**
 - 객체 또는 클래스 같은 구조화된 타입을 정의할 때 유용하다.
@@ -35,7 +38,7 @@ VSC 툴의 내부가 TS로 작성되어 있어 TS개발에 최적화되어 있�
 
 ```typescript
 /* interface는 이러한 방법으로 직접 타입 연산자 사용이 불가능 */
-type Name = 'white' | 'blue' | 'red';
+type Color = 'white' | 'blue' | 'red';
 
 /* 객체, 클래스 구조 타입 정의에 유용 */
 interface Info {
@@ -44,7 +47,7 @@ interface Info {
 }
 ```
 
-#### 타입추론 (Type Inference)
+#### 2-2 타입추론 (Type Inference)
 > 변수등에 타입을 따로 지정하지 않아도 타입스크립트가 코드를 분석해 타입을 추론하는 과정을 의미
 ```typescript
 const temp = 10;
@@ -57,7 +60,42 @@ const foo = [1, null]
 ```
 - 타입을 명시적으로 지정하지 않았지만 Best Common Type 규칙을 통해 `(number | null)[]` 타입으로 추론된다.
 
-#### Union Type vs Intersection Type
-#### Optional Parameter
+<br/>
 
----
+#### 2-3 Union Type vs Intersection Type
+> 연산자를 이용해 타입을 정의하는 방법      
+
+##### **`1. Union Type`**
+> OR 연산자(||) 처럼 'A이거나 B이다'를 정의하는 타입
+```typescript
+type Types = string | number;
+let foo: Types;
+foo = "Hello"; // 문자열 할당 가능
+foo = 123; // 숫자 할당 가능
+```
+##### **`2. Intersection Type`**
+> 합집합처럼 여러개의 타입을 모두 만족하도록 하나로 합칠 수 있다.
+```typescript
+interface Person {
+  name: string;
+  age: number;
+}
+
+interface Job {
+  name: string;
+  job: string;
+}
+
+type Manager = Person & Job;
+
+// 결과
+{
+  name: string;
+  age: number;
+  job: string
+}
+```
+<br/>
+
+#### 2-4 Optional Parameter
+
