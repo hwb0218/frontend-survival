@@ -7,5 +7,5 @@
 - [x] 개발 환경 설정
 - [x] TypeScript
 - [x] React
-- [x] Parcel & EsLint
-- [ ] Testing library
+- [x] Testing library
+- [ ] Parcel & EsLint

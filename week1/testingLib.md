@@ -12,6 +12,31 @@
 - callback, promise, async/await 비동기 코드 테스트를 수행할 수 있다.
 - 모듈, 함수나 객체등을 mocking하여 대체할 수 있다. 
 
+```javascript
+// sum.js
+function sum(a, b) {
+  return a + b;
+}
+
+module.exports = sum;
+
+// sum.test.js
+describe('sum 함수', () => {
+  it('두 수를 더한다.', () => {
+    const res ult = sum(2, 3);
+    expect(result).toBe(5);
+  });
+
+  it('음수를 더한다.', () => {
+    const result = sum(-2, -3);
+    expect(result).toBe(-5);
+  });
+});
+```
+Jest는 보통 (describe, it) 쌍으로 작성
+- describe - 테스트 그룹화
+- it - 개별 테스트 수행
+
 ##### **`SWC(Super-fast Web Compiler)`**
 > Jest는 JS파일 테스트만 지원하므로, SWC를 사용해 TS를 JS로 변환해준다. 
 - Javascript와 Typescript 코드 컴파일러
@@ -35,10 +60,15 @@
 
 ---
 #### 3. React Testing Library
-> React 컴포넌트를 테스트하기 위해 사용되는 라이브러리
+> React 컴포넌트를 테스트하기 위해 사용되는 라이브러리    
+> 주로 Jest와 함께 사용한다.
+- E2E Test와 같이 사용자 시나리오에 따라 컴포넌트의 동작을 테스트 (사용자 중심적 테스트)
+- 다만 리액트 컴포넌트 테스트만 하는 상황은 지양하자
+  - 너무 많은 테스트 코드로 인해 유지보수를 위한 테스트가 오히려 역효과를 가져올 수 있다.
 ---
 
 
 ### 키워드 추가 정리
 - TDD
 - BDD
+- E2E (End To End)
