@@ -100,4 +100,24 @@ type Manager = Person & Job;
 <br/>
 
 #### 2-4 Optional Parameter
+> 함수 호출 시 매개변수, 인터페이스를 사용할 때 정의 된 속성을 생략 할 수 있다. 또한 정의되어 있지 않은 속성에 대해 인지할 수 있다.
 
+```typescript
+function foo(x: number, y?: number) {
+  console.log(`x: ${x}, y: ${y}`);
+}
+
+foo(10) // x: 10, y: undefined (매개변수 y 생략가능)
+
+interface Person {
+  name: string;
+  age?: number;
+}
+
+const bar = {
+  name: 'dongdong',
+  age: 30,
+};
+
+console.log(bar.oo); // 오류
+```
