@@ -8,4 +8,4 @@
 - [x] TypeScript
 - [x] React
 - [x] Testing library
-- [ ] Parcel & EsLint
+- [x] Parcel & EsLint
