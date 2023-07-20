@@ -12,6 +12,8 @@
 > 구글이 chrome V8 Javascript 엔진을 개발하여 기존에 브라우저 환경에서만 작동하던 JS코드를 서버 측에서도 실행가능한 환경을 제공한 것이 Node.js      
 > 이벤트 기반, 비동기 프로그래밍 모델을 따르며 서버 애플케리케이션 개발에 사용된다.
 --- 
+<br />
+
 ### <span style="color: red">2. NPM(Node Package Manager)</span>
 > Node.js와 함께 설치되며, 이를 통해 패키지를 설치, 관리 및 공유할 수 있다.
 

@@ -26,6 +26,7 @@
 
 VSC 툴의 내부가 TS로 작성되어 있어 TS개발에 최적화되어 있다고 한다.
 
+<br />
 
 #### 2-1 Interface vs Type
 > TypeScript에서 타입을 정의하는 방법들로 Type(Type alias)과 Interface의        
@@ -46,6 +47,7 @@ interface Info {
   name: string;
 }
 ```
+<br />
 
 #### 2-2 타입추론 (Type Inference)
 > 변수등에 타입을 따로 지정하지 않아도 타입스크립트가 코드를 분석해 타입을 추론하는 과정을 의미
