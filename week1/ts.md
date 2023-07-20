@@ -121,3 +121,11 @@ const bar = {
 
 console.log(bar.oo); // 오류
 ```
+
+### 추가 키워드 정리
+- d.ts(declaration)
+  > 타입스크립트 코드의 타입 추론을 돕는 TS 선언 파일
+- 유틸리티 타입
+  > Partial, Pick, Omit
+- 제너릭
+  > 타입을 마치 함수의 파라미터처럼 사용할 수 있다.

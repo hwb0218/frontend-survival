@@ -5,7 +5,7 @@
 2. Describe-Context-It 패턴
 3. React Testing Library
 
-#### 1. Jest
+### 1. Jest
 > JavaScript Testing Framework      
 > JS 애플리케이션 테스트를 수행해 코드 안정성과 품질을 유지하고 버그를 줄일 수 있다.      
 - **expect**로 테스트 할 대상을 지정하고 **matcher**로 예상 결과와 실제 결과를 비교할 수 있다.
@@ -45,7 +45,7 @@ Jest는 보통 (describe, it) 쌍으로 작성
 ---
 <br />
 
-#### 2. Describe-Context-It 패턴
+### 2. Describe-Context-It 패턴
 > 테스트 스크립트를 구성하는데 도움이 되는 테스트 코드 구성 패턴
 - Describe - 설명할 테스트 대상을 명시한다. 
 - Context  - 테스트 대상이 놓인 상황을 설명한다.
@@ -61,7 +61,7 @@ Jest는 보통 (describe, it) 쌍으로 작성
 ---
 <br />
 
-#### 3. React Testing Library
+### 3. React Testing Library
 > React 컴포넌트를 테스트하기 위해 사용되는 라이브러리    
 > 주로 Jest와 함께 사용한다.
 - E2E Test와 같이 사용자 시나리오에 따라 컴포넌트의 동작을 테스트 (사용자 중심적 테스트)
