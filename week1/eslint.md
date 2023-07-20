@@ -19,6 +19,16 @@
 "source": "./index.html",
 ```
 
+정적 리소스 제공하기
+```json
+// parcel-reporter-static-files-copy 설치
+// .parcelrc 
+{
+  "extends": ["@parcel/config-default"],
+  "reporters":  ["...", "parcel-reporter-static-files-copy"]
+}
+```
+- static폴더 내부의 정적 리소스를 제공하고 번들링에 포함한다.
 ---
 <br />
 
