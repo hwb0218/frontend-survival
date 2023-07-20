@@ -3,9 +3,10 @@
 ### <span style="color: red">Keyword</span>
 1. Node.js
 2. NPM(Node Package Manager)
-    - package.json / package-lock.json
-    - node_modules
-    - npx
+    - 2-1 package.json  
+    - 2-2 package-lock.json
+    - 2-3 node_modules
+    - 2-4 npx
 3. ES Modules vs CommonJS
 
 ### <span style="color: red">1. Node.js</span>
@@ -17,10 +18,10 @@
 ### <span style="color: red">2. NPM(Node Package Manager)</span>
 > Node.js와 함께 설치되며, 이를 통해 패키지를 설치, 관리 및 공유할 수 있다.
 
-#### <span style="color: blue">package.json / package-lock.json</span>
+#### package.json / package-lock.json
 > Node.js 프로젝트의 루트 경로에 생성되는 의존성 관리를 위한 파일들
 
-##### **`1. package.json`**
+#### 2-1 package.json
 - 프로젝트 메타데이터 포함 
 - 의존성 정보 관리
   - dependencies - 프로덕션 환경에 필요한 패키지들로 빌드 시 번들에 포함
@@ -31,15 +32,16 @@
 > major - 기존 버전과 호환되지 않게 API가 변경되면 올림      
 > minor - 기존 버전과 호환되며 새로운 기능을 추가할 경우 올림       
 > patch - 기존 버전과 호환되며 버그 수정시 올림 
+
 </br>
 
-##### **`2. package-lock.json`**
+#### 2-2 package-lock.json
   - 의존성 트리를 고정시켜 다른 환경에서 프로젝트를 설치하거나 협업 시 상호간에 동일한 버전의 패키지를 설치할 수 있다. 
 
-#### <span style="color: blue">node_modules</span>
+#### 2-3 node_modules
 > npm 패키지 매니저로 설치한 패키지들이 저장되는 디렉토리     
 > Github에 올라가지 않도록 .gitignore에 node_modules 디렉토리 지정
-#### <span style="color: blue">npx</span>
+#### 2-4 npx
 > npx는 Node.js를 설치하면 npm과 마찬가지로 함께 설치된다.
 > 로컬에 패키지가 없을 경우 npx를 사용하면 패키지는 전역 환경에 **영구적 다운로드**가 아닌 **일시적으로 다운로드(캐싱)** 되는 것 이다.       
 > 이후 패키지를 실행한 뒤 캐싱된 패키지를 **삭제**한다.
@@ -48,14 +50,14 @@
 
 ### <span style="color: red">3. ES Modules vs CommonJS
 
-**`1. ESM`**
+#### 1. ESM
 - JS 표준 묘둘 시스템
 - **import**/**export**문을 사용
 - ESM Module Loader는 **Top-level-await**를 지원하기 때문에 비동기적으로 작동
 - 정적인 구조로 정적 분석이 가능 (모듈 의존 관계를 런타임 이전에 분석함) 
 - 정적 분석을 통해 사용하지 않는 코드를 제거하는 **Tree-shaking**이 가능해진다.
 
-**`2. CJS`**
+#### 2. CJS
 - JS 표준 모듈 시스템이 아님
 - **require**/**module.exports**문을 사용
 - CJS Module Loader는 동기적으로 작동
