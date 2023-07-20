@@ -33,5 +33,14 @@
 <br />
 
 ### 2. Lint(린트)
+> 프로그램의 실행 없이 소스 코드를 정적 분석하여 문법 오류, 잠재적 문제, 코드 스타일 가이드에 어긋나는 부분을 식별한다.
 
 #### 2-1 ESLint
+> Javascript의 코드를 검사하는 Lint, 사용자가 커스텀하여 규칙을 추가할 수 있다.
+
+```json
+"editor.codeActionsOnSave": {
+   "source.fixAll.eslint": true
+},
+```
+해당 속성을 추가하면 파일 변경 사항 저장시 ESLint가 코드 분석과 스타일 검사를 수행한다.
