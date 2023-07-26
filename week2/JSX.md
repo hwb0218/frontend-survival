@@ -46,10 +46,8 @@ React.createElement(
 마치 문장을 세미콜론(;)을 사용하지 않고 한 줄에 연속적으로 입력했을 경우와 같은 셈이다.
 ex) add(1, 2) add(3, 4) => Missing semicolon error  
 
----
-
 <br/>
-
+---
 
 ### 2. React Element
 
@@ -60,8 +58,6 @@ JSX 문법은 선언적 API를 제공해 유지보수 가능하고 개발 생산
 
 위의 JSX에서 설명한 것 처럼 Babel, swc와 같은 툴이 JSX 문법을 React.createElement 함수로 변환하는 것일 뿐이다.
 (document.createElement 함수가 동작하는 것 처럼!)
-
-<br/>
 
 #### `React automatic runtime`
 
@@ -99,9 +95,9 @@ function App() {
 
 코드 변환 시 **`import {jsx as _jsx} from 'react/jsx-runtime';`** import 구문이 추가된다.
 
----
-
 <br/>
+
+---
 
 ### 3. Virtual DOM
 
@@ -121,8 +117,6 @@ React는 선언적 API를 통해 개발자가 원하는 UI를 직접 명령형 �
 **`Fast enough`**
 
 **`재조정(Reconciliation)`** 을 통해 대부분의 경우엔 충분히 빠르다.
-
-<br/>
 
 #### 재조정(Reconciliation)
 
@@ -163,9 +157,9 @@ React는 두 엘리먼트의 속성을 확인하여, 동일한 속성의 내용�
 
 배열의 맨 끝에 엘리먼트가 삽입되지 않고 만약 3번 인덱스에 엘리먼트가 삽입될 경우엔 뒤쪽에 위치한 엘리먼트를 새로운 엘리먼트로 인식하고 4번 인덱스부터 그 뒤의 모든 엘리먼트를 리렌더링한다. 때문에 React에서는 리스팅 컴포넌트를 렌더할 때 key값을 요구한다. 이 key를 기반으로 엘리먼트의 인덱스가 변경된다해도 **기존과 동일**하다는 것을 확인하고 **그저 위치만 이동한다.**
 
----
-
 <br/>
+
+---
 
 ### 4. 선언적 API
 
@@ -174,6 +168,10 @@ React는 두 엘리먼트의 속성을 확인하여, 동일한 속성의 내용�
 #### 선언적 API와 Virtual DOM이 무슨 상관인가?
 
 선언적으로 UI 구조를 작성하고, 컴포넌트가 반환한 React element 트리가 Virtual DOM이며 상태, 타입이 변경됐을 경우 Real DOM과 비교(diffing) 순회하여 리렌더링 최적화를 수행하기 때문이다.
+
+<br />
+
+---
 
 ### 키워드 추가 정리
 
