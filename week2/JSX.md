@@ -18,7 +18,7 @@ JSX는 자바스크립트의 확장된 문법으로 열린 태그 닫힌 태그�
 - React는 해당 함수를 사용해 React element 트리를 갱신한다.
 - JSX로 할 수 있는 모든 것은 Vanilla JS로도 가능하다.
 
-##### `코드 예시`
+**`코드 예시`**
 
 ```jsx
 <div className="test">
@@ -63,7 +63,7 @@ JSX 문법은 선언적 API를 제공해 유지보수 가능하고 개발 생산
 
 React 17부터 automatic runtime이 도입되었는데, 더 이상 **`import React from 'react';`** 구문을 입력하지 않아도 된다. 이전에는 JSX가 React.createElement() 함수로 컴파일 되었기 때문에 해당 import 구문이 scope안에 있어야 했기 때문이다.
 
-##### `classic runtime`
+**`classic runtime`**
 
 ```jsx
 import React from 'react';
@@ -79,7 +79,7 @@ function App() {
 }
 ```
 
-##### `automatic runtime`
+**`automatic runtime`**
 
 ```jsx
 function App() {
@@ -95,7 +95,26 @@ function App() {
 
 코드 변환 시 **`import {jsx as _jsx} from 'react/jsx-runtime';`** import 구문이 추가된다.
 
+---
+
 ### 3. Virtual DOM
+
+Virtual DOM은 리액트가 DOM을 추상화, 가상적으로 표현해 메모리에 저장하고, ReactDOM과 같은 라이브러리에 의해 Real DOM과 동기화하는 프로그래밍 개념이다.
+
+혹자: VDOM을 사용하는 것은 빠르기 때문이다! (X)
+
+리액트팀 개발자 Dan Abramov의 답변:
+현실은 유지보수 가능한 애플리케이션을 만들 수 있으며, 대부분의 사례에선 충분히 빠르다.
+
+**`maiatainable`**
+
+Vanilla JS로 DOM element를 직접 셀렉트해 가공하는 것이 과연 유지보수에 용이할까?
+
+React는 선언적 API를 통해 개발자가 원하는 UI를 직접 명령형 프로그래밍 하는 것이 아닌, 원하는 상태를 선언적으로 프로그래밍해 React가 자동으로 UI를 업데이트할 수 있다. 그러므로 유지보수에 용이하다.
+
+**`Fast enough`**
+
+**`재조정(Reconciliation)`** 을 통해 대부분의 경우엔 충분히 빠르다.
 
 ### 4. 선언적 API
 
