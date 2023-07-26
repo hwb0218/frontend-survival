@@ -12,7 +12,7 @@
 
 JSX는 자바스크립트의 확장된 문법으로 열린 태그 닫힌 태그로 구성된 XML 문법을 따르며 HTML 문서처럼 사용할 수 있다.
 
-#### `Babel 트랜스파일링`
+#### `Babel 트랜스파일러`
 
 - Babel이 JSX문법을 **`React.createElement(components, props, …children)`** 함수로 트랜스파일링하여 문법적 설탕을 제공한다.
 - React는 해당 함수를 사용해 React element 트리를 갱신한다.
@@ -20,7 +20,7 @@ JSX는 자바스크립트의 확장된 문법으로 열린 태그 닫힌 태그�
 
 ##### `코드 예시`
 
-```javascript
+```jsx
 <div className="test">
   <p>Hello, world!</p>
   <Button type="submit">Send</Button>
@@ -37,7 +37,7 @@ React.createElement(
 
 위의 코드에서 만약 div 엘리먼트를 제거한다면?
 
-```javascript
+```jsx
   // 에러 발생
   <p>Hello, world!</p>
   <Button type="submit">Send</Button>
@@ -53,6 +53,47 @@ ex) add(1, 2) add(3, 4) => Missing semicolon error
 
 React에서 UI를 구성하는 최소 단위 React Element, 일반적으로 JSX로 표현된다.
 JSX 문법은 선언적 API를 제공해 유지보수 가능하고 개발 생산성을 증가시키지만, 공식문서는 React에서 JSX는 필수가 아니라고 설명한다.
+
+#### `왜 필수가 아닌가?`
+
+위의 JSX에서 설명한 것 처럼 Babel, swc와 같은 툴이 JSX 문법을 React.createElement 함수로 변환하는 것일 뿐이다.
+(document.createElement 함수가 동작하는 것 처럼!)
+
+#### `React automatic runtime`
+
+React 17부터 automatic runtime이 도입되었는데, 더 이상 **`import React from 'react';`** 구문을 입력하지 않아도 된다. 이전에는 JSX가 React.createElement() 함수로 컴파일 되었기 때문에 해당 import 구문이 scope안에 있어야 했기 때문이다.
+
+##### `classic runtime`
+
+```jsx
+import React from 'react';
+
+function App() {
+  return <h1>Hello World</h1>;
+}
+
+import React from 'react';
+
+function App() {
+  return React.createElement('h1', null, 'Hello world');
+}
+```
+
+##### `automatic runtime`
+
+```jsx
+function App() {
+  return <h1>Hello World</h1>;
+}
+
+import {jsx as _jsx} from 'react/jsx-runtime';
+
+function App() {
+  return _jsx('h1', { children: 'Hello world' });
+}
+```
+
+코드 변환 시 **`import {jsx as _jsx} from 'react/jsx-runtime';`** import 구문이 추가된다.
 
 ### 3. Virtual DOM
 
