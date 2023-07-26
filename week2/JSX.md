@@ -7,6 +7,10 @@
 3. Virtual DOM
 4. 선언적 API
 
+<br />
+
+---
+
 ### 1. JSX
 
 JSX는 자바스크립트의 확장된 문법으로 열린 태그 닫힌 태그로 구성된 XML 문법을 따르며 HTML 문서처럼 사용할 수 있다.
@@ -47,6 +51,7 @@ React.createElement(
 ex) add(1, 2) add(3, 4) => Missing semicolon error  
 
 <br/>
+
 ---
 
 ### 2. React Element
