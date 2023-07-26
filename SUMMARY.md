@@ -10,3 +10,4 @@
   * [4. Testing Library](week1/testingLib.md)
   * [5. Parcel & ESLint](week1/eslint.md)
 * [2주차](week2/README.md)
+  * [JSX](week2/JSX.md)
