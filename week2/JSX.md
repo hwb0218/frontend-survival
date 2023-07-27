@@ -19,9 +19,9 @@ JSX는 자바스크립트의 확장된 문법으로 열린 태그 닫힌 태그�
 
 - Babel이 JSX문법을 **`React.createElement(components, props, …children)`** 함수로 트랜스파일링하여 문법적 설탕을 제공한다.
 
-> **`문법적 설탕`**
-> 읽는 사람 또는 사용하는 사람에게 편의를 위해 디자인된 문법
-> 직관적인 문법으로 가독성을 높이지만, 남용하면 남들은 알아볼 수 없는 닌자코드가 될 수 있다. ex) 삼항연산자, nullish 병합 연산자 등
+> **`문법적 설탕`**  
+> 읽는 사람 또는 사용하는 사람에게 편의를 위해 디자인된 문법으로
+> 모든 상황에서 적합하지는 않지만, 작성자의 의도를 파악할 수 있는 상황에 사용시 직관적인 문법으로 가독성을 높인다. ex) 삼항연산자, nullish 병합 연산자 등
 
 - React는 해당 함수를 사용해 React element 트리를 갱신한다.
 - JSX로 할 수 있는 모든 것은 Vanilla JS로도 가능하다.
@@ -139,7 +139,7 @@ React는 선언적 API를 통해 개발자가 원하는 UI를 직접 명령형 �
 ##### 비교(Diffing) 알고리즘
 
 Diffing 알고리즘은 Reconciliation 과정에서 이전 상태와 새로운 상태를 비교하여 변경 사항을 찾아내는 알고리즘이다.
-두 개의 트리를 비교할 때, 리액트는 DOM Tree의 동일 레벨/계층끼리 level-by-level로 탐색한다.
+두 개의 트리를 비교할 때, 리액트는 DOM Tree의 동일 레벨/계층끼리 **`level-by-level`**로 탐색한다.
 해당 아이디어가 휴리스틱 알고리즘의 중요한 부분을 고려하는 것이다!
 
 **`1-1. 엘리먼트의 타입이 다른 경우`**
@@ -166,6 +166,51 @@ React는 두 엘리먼트의 속성을 확인하여, 동일한 속성의 내용�
 **`2-1. 자식에 대한 재귀적 처리`**
 
 배열의 맨 끝에 엘리먼트가 삽입되지 않고 만약 3번 인덱스에 엘리먼트가 삽입될 경우엔 뒤쪽에 위치한 엘리먼트를 새로운 엘리먼트로 인식하고 4번 인덱스부터 그 뒤의 모든 엘리먼트를 리렌더링한다. 때문에 React에서는 리스팅 컴포넌트를 렌더할 때 key값을 요구한다. 이 key를 기반으로 엘리먼트의 인덱스가 변경된다해도 **기존과 동일**하다는 것을 확인하고 **그저 위치만 이동한다.**
+
+```jsx
+const fruits = [{
+  id: "1",
+  name: "banana"
+}, {
+  id: "2",
+  name: "apple"
+}, {
+  id: "3",
+  name: "orange"
+}];
+
+function ArrayRenderComponents() {
+  return (
+    <ul>
+      {fruits.map((fruit) => (
+          <li key={fruit.id}>{fruit.name}</li>
+      ))}
+    </ul>
+  );
+}
+
+<ul>
+  <li key="1">banana</li>
+  <li key="2">apple</li>
+  <li key="3">orange</li>
+</ul>
+
+```
+
+엘리먼트가 배열에 삽입된다면?
+
+```javascript
+
+<ul>
+  <li key="1">banana</li>
+  <li key="2">apple</li>
+  <li key="4">mango</li>
+  <li key="3">orange</li>
+</ul>
+
+```
+
+key prop을 통해 React 기존과 동일한 엘리먼트임을 확인하고 위치만 이동!
 
 <br/>
 
