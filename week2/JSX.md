@@ -63,7 +63,7 @@ ex) add(1, 2) add(3, 4) => Missing semicolon error
 ### 2. React Element
 
 React에서 UI를 구성하는 최소 단위 React Element, 일반적으로 JSX로 표현된다.
-JSX 문법은 선언적 API를 제공해 유지보수 가능하고 개발 생산성을 증가시키지만, 공식문서는 React에서 JSX는 필수가 아니라고 설명한다.
+JSX 문법은 선언적 API를 제공해 유지보수 가능하고 개발 생산성을 증가시키지만, 공식문서는 React에서 JSX가 필수가 아니라고 설명한다.
 
 #### `왜 필수가 아닌가?`
 
