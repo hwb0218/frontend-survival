@@ -210,7 +210,7 @@ function ArrayRenderComponents() {
 
 ```
 
-key prop을 통해 React 기존과 동일한 엘리먼트임을 확인하고 위치만 이동!
+key prop을 통해 React가 기존과 동일한 엘리먼트임을 확인하고 위치만 이동!
 
 <br/>
 
