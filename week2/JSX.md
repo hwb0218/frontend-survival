@@ -220,7 +220,7 @@ key prop을 통해 React가 기존과 동일한 엘리먼트임을 확인하고 
 
 개발자가 DOM element를 선택해 addEventLinster로 이벤트를 등록하거나, classList를 add 하거나, 어떠한 부모 노드의 자식 엘리먼트로 추가될 지 직접 DOM 조작과 상태 변화에 대해 명령할 필요없이 선언적으로 React에게 UI를 어떻게 표현해야 하는지를 알려주는 방식이다.
 
-#### 선언적 API와 Virtual DOM이 무슨 상관인가?
+**`선언적 API와 Virtual DOM이 무슨 상관인가?`**
 
 선언적으로 UI 구조를 작성하고, 컴포넌트가 반환한 React element 트리가 Virtual DOM이며 상태, 타입이 변경됐을 경우 Real DOM과 비교(diffing) 순회하여 리렌더링 최적화를 수행하기 때문이다.
 
