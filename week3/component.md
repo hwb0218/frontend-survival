@@ -1,0 +1,87 @@
+# React Component
+
+React로 UI를 설계하는 5가지 원칙에 대해 지속적으로 훈련하고 복잡한 UI를 설계하기 위한 단순한 컴포넌트로 분리하는 과정에 대해 이해하자.
+
+## Thinking in React (React로 사고하기)
+
+**`Step 1: Break the UI into a component hierarchy`**
+
+UI를 컴포넌트 계층 구조(하이라키)로 나누기
+
+**`Step 2: Build a static version in React`**
+
+React로 정적인 UI 만들기
+
+### 데이터
+
+백엔드에서 JSON 데이터를 응답하는 API를 제공한다고 가정
+
+#### REST API
+
+> 웹 서비스에서 브라우저와 서버간에 데이터를 주고 받기 위한 통신 아키텍처로 URI에 리소스를 명시하고, HTTP Request Method를 통해 자원에 대한 CRUD 작업을 정의한다.
+
+- 리소스 중심
+- GET, POST, PUT/PATCH, DELETE (CRUD 작업)
+
+#### GraphQL
+
+> 마지막에 정리
+
+#### JSON (JavaScript Object Notation)
+
+> Javascript 객체 문법을 따르는 문자열 데이터 포멧으로 key-value 쌍으로 이루어져 있으며 클라이언트와 서버간의 통신을 주고받을 때 사용한다.
+
+프론트엔드는 위와 같은 형태의 데이터를 사용자가 볼 수 있도록 UI를 구성한다. React는 선언형 UI, 즉 XML과 유사한 문법을 사용해 HTML 문서처럼 작성할 수 있다.
+
+### 컴포넌트 계층 구조
+
+React의 강력한 특징!
+
+- 컴포넌트 기반 (React App 구성 요소)
+- 자체 상태를 관리하는 캡슐화된 컴포넌트를 만들고, 이를 조합하여 복잡한 UI를 만들 수 있다.
+
+#### 컴포넌트를 분리하는 기준들
+
+1. 단일 책임 원칙 (SRP - Single Responsibility Principle)
+2. CSS
+3. Design's Layer
+4. Information Architecture
+
+**`1. 단일 책임 원칙`**
+
+객체 지향 프로그래밍에서 원칙 중 하나
+모든 클래스는 단 하나의 책임만 가지며 그 책임을 캡슐화해야 한다.
+React에서 단일 책임 원칙은 모든 컴포넌트는 하나의 책임을 가져야 한다. 하나의 컴포넌트가 외부 API 호출, 이벤트 핸들링, 다수의 상테관리, 장황한 JSX 등으로 사이즈가 너무 커진다면 컴포넌트로 분리
+
+**`2. CSS`**
+
+클래스 선택자를 통해 어떠한 용도로 만들지 생각하고 컴포넌트 분리
+
+**`3. Design's Layer`**
+
+디자인 툴로 설계한 Layer(계층)에 따라 컴포넌트 분리
+
+**`4. Information Architecture`**
+
+JSON Schema(데이터 구조)에 따른 컴포넌트 분리  
+자연스러운 SRP를 위해 강제되며 실제로 데이터 구조에따라 컴포넌트를 분리하게 됨
+
+> 작은 컴포넌트를 조합해 다양한 가짓수의 UI를 생성할 수 있는 전형적인 방법
+
+**`Atomic Design`** [관련 링크](https://fe-developers.kakaoent.com/2022/220505-how-page-part-use-atomic-design-system/)
+
+- Atoms  
+  Atom은 컴포넌트를 가장 작은 단위로 분리한 것으로 일반적으로 HTML element 단위로 작성된다. 단독 사용은 어렵고, 이것들을 결합한 molecule, organism 단위로 결합해 유용하게 사용할 수 있다.
+- Molecule  
+  여러개의 Atom을 조합하여 SRP를 만족하는 하나의 일을 수행하는 단위. Input Atom에 텍스트를 입력하고 Button Atom을 클릭해 form을 전송하는 molecule의 예시가 있다.
+  하나의 책임을 가지므로 재사용성과 UI의 일관성, 테스트에 용이하다.
+- Organism  
+  웹 서비스에서 표현될 수 있는 명확한 레이아웃과 특정 컨텍스트(특정 코드, 영역에 대한 환경정보)를 가진다. 컨텍스트를 가지기 때문에 재사용이 어렵다.
+
+> 이 3가지 키워드가 중요하다고 생각한다. 연관된 레이아웃을 기준으로 컴포넌트를 나누면 해당 컴포넌트는 Organism단위로 분리되는데, 각각 다른 페이지에서 동일한 UI를 사용하다 한 페이지에서 UI 수정요청이 들어오면 오히려 새로운 컴포넌트를 만드는게 나은 경우가 많다. 이러한 이유로 본인의 경우 재사용성을 높이고 싶다면 가장 작은 단위 Atoms 컴포넌트를 우선적으로 생성하고, 만약 하나의 기능을 수행하는 컴포넌트가 필요하다면 Molecule로 조합하고 Organism을 최종적으로 생성한다. 결과적으론 Atoms + Molecule 혼합된 Organism이 생성된다.
+
+### Extract Function
+
+SRP를 위한 수단, 복잡한 코드를 함수로 추출하여 분리하고 재사용 가능한 구조로 만든다. 일단 하나의 컴포넌트에서 길게 작성하고 분리할 수 있는 구조가 보이면 분리한다.
+
+### Props
