@@ -74,8 +74,39 @@ Javascript에서의 일급 객체는 다음과 같은 특징을 가진 객체다
 2. 함수를 함수의 매개변수로 전달할 수 있다. (ex. 콜백 함수)
 3. 함수를 함수의 반환 값으로 사용이 가능하다. (ex. 클로저)
 
-일급 객체의 특징으로 인해 콜백 함수 패턴과 고차 함수 등의 다양한 기능을 통해 프로그래밍이 가능하다.
+일급 객체의 특징으로 인해 콜백 함수, 고차 함수 등의 다양한 패턴을 통해 프로그래밍이 가능하다.
 
 ### Lifting State Up
 
+SSOP에서 언급한 하나의 소스에서 관리하자는 개념을 적용하여 여러 컴포넌트가 동일한 상태를 공유해야 할 경우 공통 컴포넌트로 State를 끌어올리는 Lifting State Up 과정이 필요하다.
+
+- 상위 컴포넌트에서 State를 관리하므로 상태를 효율적으로 관리할 수 있다. (ex. 특정 하위 컴포넌트에서 해당 상태 공유가 필요할 경우 Props로 전달)
+- Props Driling을 최소화 할 수 있다.
+- State의 중복을 최소화 할 수 있다.
+
 ### Inverse Data Flow
+
+React는 데이터 전달이 부모에서 자식으로 한 쪽으로만 흐르는 단방향 바인딩의 특성을 가지는데, 역방향 데이터 흐름은 이에 대비되는 개념이다. 자식 컴포넌트에서 상태를 변경할 땐 부모 컴포넌트로 데이터를 전달하는 콜백 함수를 호출하여 상태를 업데이트한다.
+
+```jsx
+function FilterableProductTable({ products }) {
+  const [filterText, setFilterText] = useState('');
+  const [inStockOnly, setInStockOnly] = useState(false);
+
+  return (
+    <div>
+      <SearchBar 
+        filterText={filterText} 
+        inStockOnly={inStockOnly}
+        onFilterTextChange={setFilterText}
+        onInStockOnlyChange={setInStockOnly} />
+
+// SearchBar.jsx
+
+<input 
+  type="text" 
+  value={filterText} 
+  placeholder="Search..." 
+  onChange={(e) => onFilterTextChange(e.target.value)} />
+
+```  
