@@ -12,6 +12,28 @@ UI를 컴포넌트 계층 구조(하이라키)로 나누기
 
 React로 정적인 UI 만들기
 
+<br />
+
+---
+
+### Keyword
+
+- REST API 와 GraphQL
+  - REST API 란 무엇인가
+  - GraphQL은 왜 등장했는가?
+  - REST API vs GraphQL
+- JSON
+- DSL(Domain-Specific Language)
+- 선언형 프로그래밍
+- 명령형 프로그래밍
+- SRP(단일 책임 원칙)
+- Atomic Design
+- React component 와 props
+
+<br />
+
+---
+
 ### 데이터
 
 백엔드에서 JSON 데이터를 응답하는 API를 제공한다고 가정
@@ -23,11 +45,29 @@ React로 정적인 UI 만들기
 - 리소스 중심
 - GET, POST, PUT/PATCH, DELETE (CRUD 작업)
 
+**`GraphQL`**
+
+- REST API의 단점을 보완하기 위해 등장
+- REST API 단점 - Over fetching & Under fetching  
+  - Over fetching  
+    필요한 데이터 보다 많은 데이터를 가져온 경우
+  - Under fetching  
+    필요한 데이터 보다 적은 데이터를 가져온 경우
+- GraphQL은 단일 엔드포인트를 사용하고, 정보를 특정할 수 있기 때문에 하나의 요청만으로 필요한 데이터를 받을 수 있다.
+- Query에 필요한 데이터를 작성한다.
+- Query (Read), Mutation(Create, Update, Delete), Subscription(Event)
+
+**`REST API vs GraphQL`**
+
 #### JSON (JavaScript Object Notation)
 
 > Javascript 객체 문법을 따르는 문자열 데이터 포멧으로 key-value 쌍으로 이루어져 있으며 클라이언트와 서버간의 통신을 주고받을 때 사용한다.
 
 프론트엔드는 위와 같은 형태의 데이터를 사용자가 볼 수 있도록 UI를 구성한다. React는 선언형 UI, 즉 XML과 유사한 문법을 사용해 HTML 문서처럼 작성할 수 있다.
+
+#### DSL (Domain Specific Language)
+
+> 특정 도메인이나 문제 영역을 해결하기 위해 특화된 언어를 말한다. SQL은 데이터베이스와 상호 작용하기 위한 쿼리 언어로 DSL의 예시다. GraphQL도 웹 서비스에서 데이터 통신을 위한 DSL이다. HTML과 CSS는 웹 페이지의 구조와 스타일링, 레이아웃을 지정하는 웹이라는 DSL로 볼 수 있다.
 
 <br />
 
@@ -47,7 +87,7 @@ React의 강력한 특징!
 3. Design's Layer
 4. Information Architecture
 
-**`1. 단일 책임 원칙`**
+**`1. 단일 책임 원칙 (SRP)`**
 
 객체 지향 프로그래밍에서 원칙 중 하나
 모든 클래스는 단 하나의 책임만 가지며 그 책임을 캡슐화해야 한다.
@@ -66,7 +106,7 @@ React에서 단일 책임 원칙은 모든 컴포넌트는 하나의 책임을 �
 JSON Schema(데이터 구조)에 따른 컴포넌트 분리  
 자연스러운 SRP를 위해 강제되며 실제로 데이터 구조에따라 컴포넌트를 분리하게 됨. 주로 데이터 구조로 인해 강제적으로 컴포넌트를 분리하게 된다.
 
-> 작은 컴포넌트를 조합해 다양한 가짓수의 UI를 생성할 수 있는 전형적인 방법
+> 작은 컴포넌트를 조립해 다양한 가짓수의 UI를 생성할 수 있는 전형적인 방법
 
 **`Atomic Design`** [관련 링크](https://fe-developers.kakaoent.com/2022/220505-how-page-part-use-atomic-design-system/)
 
@@ -96,7 +136,13 @@ JSON Schema(데이터 구조)에 따른 컴포넌트 분리
 
 ---
 
-### Props
+### React Component & Props
+
+**`React Component`**
+
+- component는 상태를 통해 동적인 UI를 표현할 수 있고, 이를 조합해 복잡한 UI를 구성 할 수 있다.  
+
+**`Props`**
 
 - React의 Props는 자식 컴포넌트로 데이터를 전달하는 방법으로 컴포넌트 간의 데이터 흐름을 생성한다.  
 - TypeScript를 잘 사용하거나 잘못 사용하거나를 결정한다.
@@ -106,14 +152,14 @@ JSON Schema(데이터 구조)에 따른 컴포넌트 분리
 
 ---
 
-### 키워드 추가 정리
+### 선언형 / 명령형 프로그래밍
 
-**`GraphQL`**
+**`선언형 프로그래밍`**
 
-- REST API의 단점을 보완하기 위해 등장
-- 단점 - Over fetching & Under fetching  
-  - Over fetching  
-    필요한 데이터 보다 많은 데이터를 가져온 경우
-  - Under fetching  
-    필요한 데이터 보다 적은 데이터를 가져온 경우
-- GraphQL은 단일 엔드포인트를 사용하고, 정보를 특정할 수 있기 때문에 하나의 요청만으로 필요한 데이터를 받을 수 있다.
+- **무엇을(What)** 수행해야 하는지 개발자기 원하는 결과를 작성한다.
+- 내부적인 구현을 추상화한다.
+
+**`명령형 프로그래밍`**
+
+- **어떻게(How)** 수행해야 하는지 개발자가 일일히 명시적으로 지정한다.
+- 내부적인 구현을 명시적으로 작성한다.

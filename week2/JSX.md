@@ -223,7 +223,7 @@ key prop을 통해 React가 기존과 동일한 엘리먼트임을 확인하고 
 
 **`선언적 API와 Virtual DOM이 무슨 상관인가?`**
 
-선언적으로 UI 구조를 작성하고, 컴포넌트가 반환한 React element 트리가 Virtual DOM이며 상태, 타입이 변경됐을 경우 Real DOM과 비교(diffing) 순회하여 리렌더링 최적화를 수행하기 때문이다.
+선언적으로 UI 구조를 작성하고, 컴포넌트가 반환한 React element 트리가 Virtual DOM이며 상태, 타입이 변경됐을 경우 Real DOM과 비교(diffing) 순회하여 리렌더링 최적화를 수행하는데 이 과정을 React에게 선언적으로 알려주면 알아서 처리하기 때문이다.
 
 <br />
 
