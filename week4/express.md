@@ -18,10 +18,6 @@
 
 > REST API는 클라이언트와 서버간에 데이터를 주고 받기위한 통신 아키텍처로 리소스를 식별하기 위해 URI에 명시하고, HTTP Method를 통해 자원에 대한 CRUD 작업을 정의한다.
 
-### URL 구조
-
-> 자원 식별을 명사로 표현하고, 해당 자원에 대한 작업 및 처리(CRUD)는 HTTP Method를 이용한다.
-
 **`로이 필딩의 REST API 아키텍처 4단계 레벨`**
 
 1. 레벨 0: Swamp of POX (Plain Old XML)
@@ -40,6 +36,11 @@
 ### HTTP Method(CRUD)
 
 > 해당 자원에 대한 작업 및 처리(CRUD)는 HTTP Method를 이용한다.
+
+#### URL 구조
+
+> 자원 식별을 명사로 표현하고, 해당 자원에 대한 작업 및 처리(CRUD)는 HTTP Method를 이용한다.
+> 조회 작업의 경우 Collection(복수), item(단수)로 나뉜다.
 
 **`기본 리소스 URL: /products`**
 
