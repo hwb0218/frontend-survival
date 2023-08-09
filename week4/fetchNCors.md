@@ -28,11 +28,43 @@
 > Promise는 Javascript에서 비동기 작업을 처리하기 위한 객체로 동기적 수행을 하기 위해 중첩된 콜백 지옥을 **`.then()`** 체이닝을 통해 해결할 수 있다.
 > Promise를 사용하는 비동기 함수는 Promise 객체를 반환한다.
 
-- **pending, fulfilled, rejected** 3가지 상태를 가진다.
+- Promise 객체는 (resolve, reject)를 파라미터로 하는 Callback 함수로 생성한다.
+- **pending, fulfilled, rejected** 3가지 상태를 가진다. 
+  - Promise 객체의 초기 상태는 pending
+  - resolve 호출 -> fulfilled
+  - reject 호출 -> rejected
 - Promise.then() 함수로 fulfilled, rejected 상태에 대한 callback을 등록하고 사용할 수 있다.
 - Promise.catch() 함수로 rejected 상태에 대한 callback을 등록하고 사용할 수 있다.
-- Promise 객체는 (resolve, reject)를 파라미터로 하는 Callback 함수로 생성한다.
 - 동작이 수행(fulfilled)되면 resolve 함수를, 취소(rejected)되면 reject함수로 결과를 반환한다.
+
+```javascript
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const data = { message: "Data fetched successfully" };
+      resolve(data);
+    }, 1000);
+  });
+}
+
+fetchData()
+  .then(result => {
+    // result = { message: "Data fetched successfully" }
+    console.log("First .then() result:", result);
+    return "Additional data";
+  })
+  .then(data => {
+    // data = Additional data
+    console.log("Second .then() data:", data);
+    return 42;
+  })
+  .then(value => {
+    // value = 42
+    console.log("Third .then() value:", value);
+  });
+```
+
+> 각 **`.then()`** **`.catch()`** 함수는 Promise 객체를 반환하기 때문에 함수 체이닝이 가능하다.
 
 ### ReadableStream
 
