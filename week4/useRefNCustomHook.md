@@ -45,7 +45,7 @@ import { useState, useRef } from 'react';
 const query = useRef('');
 const [filterText, setFilterText] = useState('');
 
-// 의존성 배열의 filterText에 의해 query.current에 값이 할당됨
+// filterText값이 변경될 때 마다 query.current에 값이 할당됨
 useEffect(() => {
   query.current = filterText;
 }, [filterText]);
