@@ -5,7 +5,7 @@
 ## Contents
 
 - [x] Express
-- [ ] Fetch API & CORS
+- [x] Fetch API & CORS
 - [ ] React Hook
 - [ ] useRef & Custom hook
 - [ ] usehooks-ts

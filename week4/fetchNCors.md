@@ -72,11 +72,13 @@ fetchData()
 
 ### ReadableStream
 
+fetct API의 response 객체의 body 속성은 ReadableStream의 구체적인 인스턴스를 제공한다.
+
 > 정리하자면 ReadableStream은 웹 플랫폼에서 사용되는 Streams API로 대용량의 데이터를 작은 조각(chunk)로 나누어 전송한다. 그래서 필요한만큼 데이터를 순차적으로 읽을 수 있어 메모리를 효율적으로 관리할 수 있다. 스트리밍이란 단어를 보니 UDP가 떠오르는데 빠르고 가볍게 데이터를 전송하는 전송 계층 프로토콜이 떠오른다. 가볍다라는 유사성이 보이긴 하지만, 두 개념의 직접적인 연관성은 딱히 없어보인다.
 
 **`stream`**
 
-> 스트림은 데이터를 작은 청크(chunk)로 나누어 처리하는 방식을 말한다.
+> 스트림은 데이터를 작은 조각(chunk)으로 나누어 처리하는 방식을 말한다.
 
 ### Unicode
 
@@ -104,3 +106,37 @@ fetchData()
 ---
 
 ### CORS란?
+
+> 브라우저는 웹 보안 정책 **SOP**에 의해 다른 출처의 리소스 접근을 제한한다. 때문에 서로 다른 출처간의 리소스 공유를 허용하기 위해서 CORS 메커니즘을 통해 리소스 접근 권한을 부여한다. 여기서 말하는 출처란  
+> 출처(origin) = Protocol(schema) + Host(domain) + Port 이것들을 합친 URL을 의미한다.
+
+**`요청 방식에 따른 CORS 발생`**
+
+1. `<img>, <video>, <script>, <link>` 태그로 다른 사이트 리소스 접근
+2. XMLHttpRequest, Fetch API 서버 비동기 통신
+
+**`CORS Error 해결하기`**
+
+```javascript
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+
+// 모든 출처에 대해 CORS 허용 설정
+app.use(cors());
+
+// ...
+```
+
+**`SOP (동일 출처 정책)`**
+
+> 동일 출처에 대해서만 리소스 공유를 허용한다는 웹 보안 정책, 서로 다른 출처간의 리소스 공유를 제한한다.
+
+**`SOP의 필요성`**
+
+> 해커의 CSRF(요청 위조), XSS(스크립트 삽입) 공격 차단
+
+### 추가 키워드
+
+- CORS에 따른 요청방식 3가지(Simple, Preflight, Credentialed request)
