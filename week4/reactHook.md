@@ -19,11 +19,11 @@
 
 - Wrapper Hell (HoC) -> 고차 컴포넌트의 중첩으로 발생하는 코드의 복잡성
 - Huge Components -> 크기가 큰 복잡한 기능을 가진 컴포넌트
-- Confusing Classes -> 클래스의 메서드, 라이프사이클 메서드, 상태 관리 등이 섞여 혼란 야기
+- Confusing Classes -> 클래스의 메서드, 라이프사이클 메서드, 상태 관리 등이 섞여 혼란 야기 (ex. this 바인딩)
 
 **`React Hooks의 도입`**
 
-- Functional Component만 사용 -> 함수형 컴포넌트는 코드 가독성을 높인다.
+- Functional Component만 사용 -> 함수형 컴포넌트는 코드를 간결하게 작성하고 가독성을 높인다.
 - 상태 관리 유무를 바로 알기 어려움 -> React가 내부적으로 최적화를 수행하므로 신경쓰지 않아도 된다.
 - 복잡한 요소는 전부 Hook으로 격리 및 재사용 가능. -> custom hook으로 로직 재사용
 
