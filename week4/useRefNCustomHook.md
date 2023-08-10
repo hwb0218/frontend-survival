@@ -84,3 +84,32 @@ if (playing) {
 - Custom hook
 
 **`Custom hook`**
+
+> 로직을 재사용하기 위한 가장 쉬운 방법  
+> React의 훅을 사용하여 컴포넌트 로직을 재사용하기 위한 함수이다. 커스텀 훅에 부수 효과 작업이나 상태 관리 로직을 캡슐화하여
+> 컴포넌트의 코드를 보다 간결하게 작성할 수 있다. 커스틈 훅의 이름은 **`use`**로 시작해야 한다.
+
+예시 코드
+
+```tsx
+// 서버 요청 커스텀 훅
+function useFetchProducts() {
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const url = 'http://localhost:3000/products';
+      const response = await fetch(url);
+      const data = await response.json();
+      setProducts(data.products);
+    };
+
+    fetchProducts();
+  }, []);
+
+  return products;
+}
+```
+
+> 내부에서 API 요청을 보내거나, useEffect를 쓰거나 커스텀 훅을 호출하는 컴포넌트는 내부 로직에 대해 관심이 없고
+> 그저 반환하는 값만 가져다 쓴다.
