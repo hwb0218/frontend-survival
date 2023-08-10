@@ -16,21 +16,64 @@
 1. 컴포넌트가 언마운트될 때까지 동일한 값을 사용해야 할 경우
 2. (useEffect 등과 함꼐 쓰면서 만나게 되는) 비동기 상황에서 현재 값을 제대로 쓰고 싶은 경우
 
+1번 예시 코드
+
+```jsx
+// 외부에서 ref 객체를 참조할 경우
+const ref = {
+  value: 1,
+}
+
+function TimerControl() {
+  ref.value += 1;
+}
+
+// useRef를 호출해 값을 참조할 경우
+function TimerControl() {
+  const ref = useRef(1);
+  ref.current += 1;
+}
+```
+
+> TimerControl 컴포넌트를 10번 재사용한다고 가정했을 때, 각 컴포넌트는 동일한 객체의 프로퍼티를 참조하므로 value의 값이 +10 증가할 것이다. 때문에 useRef hook을 호출해 각자의 컴포넌트가 독립적인 값을 갖게된다.
+
 2번 예시 코드
 
 ```jsx
+import { useState, useRef } from 'react';
+
+const query = useRef('');
 const [filterText, setFilterText] = useState('');
 
+// 의존성 배열의 filterText에 의해 query.current에 값이 할당됨
 useEffect(() => {
-	setTimeout(() => {
-		console.log(filterText);
-	}, 5_000);
+  query.current = filterText;
+}, [filterText]);
+
+useEffect(() => {
+  setTimeout(() => {
+    console.log(filterText);
+  }, 5_000);
 }, []);
 ```
 
-> 클로저로 인한 변수를 캡처, 바인드를 깜빡하는 문제가 일어난다는 말이 조금 난해하다. 함수형 컴포넌트는 결국 함수이기 때문에 생명주기가 끝나면 지역변수가 메모리에서 해제되는데 이 클로저 패턴을 이용할 시 함수의 생명주기가 끝났음에도 내부 함수에서 변수를 참조하고 있기 때문에 변수의 캡쳐, 바인드가 발생한다. useState도 내부적으로 클로저를 이용해 컴포넌트가 반환된 후에도 계속 상태값을 참조하며 화면에 보여주고 그 상태를 가지고 1씩 더하거나 하는등의 계산을 수행하며 업데이트 하는 것인데, 이러한 원리로 인하여 현재 useEffect는 컴포넌트가 마운트 시 한 번만 실행되므로 상태 업데이트로 인한 컴포넌트 리렌더링이 발생하기 전까진 당시의 상태값을 참조하여 5초 뒤에 빈 문자열이 출력된다.
+> 클로저로 인한 변수를 캡처, 바인드를 깜빡하는 문제가 일어난다는 말에 첨언하자면, 함수형 컴포넌트는 결국 함수이기 때문에 생명주기가 끝나면 지역변수가 메모리에서 해제되는데 이 클로저 패턴을 이용할 시 함수의 생명주기가 끝났음에도 내부 함수에서 변수를 참조하고 있기 때문에 변수의 캡쳐, 바인드가 발생한다. useState도 내부적으로 클로저를 이용해 컴포넌트가 반환된 후에도 계속 상태값을 참조하며 화면에 보여주고 그 상태를 가지고 1씩 더하거나 하는등의 계산을 수행하며 업데이트 하는 것인데, 이러한 원리로 인하여 현재 useEffect는 컴포넌트가 마운트 시 한 번만 실행되므로 상태 업데이트로 인한 컴포넌트 리렌더링이 발생하기 전까진 당시의 상태값을 참조하여 5초 뒤에 빈 문자열이 출력된다.
 
 ### 2. Hook의 규칙
+
+> React Hooks의 호출은 컴포넌트 또는 Custom Hook의 최상위 레벨에서 호출해야한다.
+> 종종 조건문이나 콜백 함수 내부에서 호출하는 실수를 범한다.
+
+잘못된 예제 코드
+
+```jsx
+const [playing, setPlaying] = useState(false);
+
+if (playing) {
+  const products = useFetchProducts();
+  console.log(products);
+}
+```
 
 ### 추가 키워드
 
