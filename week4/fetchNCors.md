@@ -117,7 +117,7 @@ fetct API의 response 객체의 body 속성은 ReadableStream의 구체적인 �
 
 **`CORS Error 해결하기`**
 
-> 서버에서 cors 미들웨어 사용
+> 서버에서 cors 미들웨어 사용 또는 response Headers에 “Access-Control-Allow-Origin” 속성을 추가하면 된다.
 
 ```javascript
 const express = require('express');

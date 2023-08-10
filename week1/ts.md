@@ -126,6 +126,6 @@ console.log(bar.oo); // 오류
 - d.ts(declaration)
   > 타입스크립트 코드의 타입 추론을 돕는 TS 선언 파일
 - 유틸리티 타입
-  > Partial, Pick, Omit
+  > Partial, Pick, Omit 등 기존에 정의된 타입을 가지고 재정의 할때 유용
 - 제너릭
   > 타입을 마치 함수의 파라미터처럼 사용할 수 있다.
