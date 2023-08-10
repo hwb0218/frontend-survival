@@ -7,7 +7,7 @@
 - [x] Express
 - [x] Fetch API & CORS
 - [x] React Hook
-- [ ] useRef & Custom hook
+- [x] useRef & Custom hook
 - [ ] usehooks-ts
 
 ### 📝 기록하기
