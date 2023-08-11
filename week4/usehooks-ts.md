@@ -98,7 +98,7 @@ export const useIsomorphicLayoutEffect =
 #### useEventListener
 
 > window 객체에 접근하는 행위도 외부 시스템과 싱크하는 부수 효과이므로 useEffect 내부에서 조작하는데
-> useEventListener의 장점은 useEffect를 생략하고 브라우저 스크롤, 리사이즈 이벤트와 같이 window 객체에 접근해 브라우저 자체 UI를 조작할 때 유용한 것 같다.
+> useEventListener의 장점은 useEffect를 생략하고 브라우저 스크롤, 리사이즈 이벤트와 같이 window 객체에 접근해 브라우저 자체 UI를 조작할 때 유용한 것 같다. 특수하게 외부에 물려있는 코드가 많을 경우 해당 훅을 쓰면 유용하다고 한다.
 
 #### useLocalStorage
 
@@ -107,7 +107,9 @@ export const useIsomorphicLayoutEffect =
 
 #### useDarkMode
 
-> useDarkMode 내부적으로 useLocalStorage 훅을 사용하고 있음(브라우저가 종료 후 재실행 됐을 때 테마는 지속되어야 함)
+> useDarkMode 내부적으로 useLocalStorage 훅을 사용하고 있음(브라우저가 종료 후 재실행 됐을 때 테마는 지속되어야 함)  
+
+> 좋은 기능들이 많이 있는 것 같은데, 개인적으로는 가져다 쓰기만 하면 라이브러리에 너무 의존하게 되니 직접 구현이 가능한 부분은 최대한 구현할 수 있도록 한다.
 
 ---
 
