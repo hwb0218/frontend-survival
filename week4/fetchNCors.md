@@ -139,6 +139,8 @@ app.use(cors());
 
 > 해커의 CSRF(요청 위조), XSS(스크립트 삽입) 공격 차단
 
+<!-- 동일 출처 URL 예시를 추가하면 좋을듯 -->
+
 ### 추가 키워드
 
 - CORS에 따른 요청방식 3가지(Simple, Preflight, Credentialed request)
