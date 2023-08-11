@@ -61,7 +61,39 @@ const { data = {products: []} } = useFetch(url);
 
 #### useInterval
 
-<!-- > setInterval을 useEffect 내부에서 사용할 때 주의할 점은 컴포넌트가 리렌더될 때 마다 setInterval의 콜백함수가 -->
+> setInterval을 컴포넌트 내부에서 사용할 때 주의할 점은 setInterval의 콜백함수는 클로저로서 외부 변수를 참조한다. 떄문에 해당 값이 변경되었어도, 함수가 정의될 당시의 값을 기억하고 있어 동일한 값을 참조하게 된다.
+
+```jsx
+function IntervalComponent() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // setCount(count + 1); => X
+      setCount(prevCount => prevCount + 1); 
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  return <div>...</div>;
+}
+```
+
+> setInterval을 사용해야 할 경우 useInterval을 사용하고, 직접 구현 해야한다면 custom hook을 만들어 해결해야한다.
+
+**`useInterval 코드`**
+
+```jsx
+import { useEffect, useLayoutEffect } from 'react'
+
+export const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? useLayoutEffect : useEffect
+```
+
+> 내부 로직에 useIsomorphicLayoutEffect Hook을 사용하고 있는데 실행 환경이 브라우저면 DOM 렌더링 전에 실행되는 useLayoutEffect 훅을 사용하고 아니라면 useEffect를 사용한다.
 
 #### useEventListener
 
