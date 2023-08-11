@@ -97,9 +97,17 @@ export const useIsomorphicLayoutEffect =
 
 #### useEventListener
 
+> window 객체에 접근하는 행위도 외부 시스템과 싱크하는 부수 효과이므로 useEffect 내부에서 조작하는데
+> useEventListener의 장점은 useEffect를 생략하고 브라우저 스크롤, 리사이즈 이벤트와 같이 window 객체에 접근해 브라우저 자체 UI를 조작할 때 유용한 것 같다.
+
 #### useLocalStorage
 
+> 웹 스토리지, localStorage를 통해 객체를 JSON으로 영속화(외부에 데이터 저장이 지속되는)
+> 헤당 기능을 사용하면 팝업을 며칠간 안보기, 테마 색상 변경하기 등이 가능
+
 #### useDarkMode
+
+> useDarkMode 내부적으로 useLocalStorage 훅을 사용하고 있음(브라우저가 종료 후 재실행 됐을 때 테마는 지속되어야 함)
 
 ---
 
