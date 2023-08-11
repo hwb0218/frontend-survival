@@ -8,6 +8,4 @@
 - [x] Fetch API & CORS
 - [x] React Hook
 - [x] useRef & Custom hook
-- [ ] usehooks-ts
-
-### 📝 기록하기
+- [x] usehooks-ts

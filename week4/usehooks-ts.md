@@ -118,3 +118,24 @@ export const useIsomorphicLayoutEffect =
 ---
 
 ### react-query
+
+> React Query는 React 애플리케이션의 비동기 데이터를 caching하여 필요할 때 다시 가져올 수 있다.
+
+- 요청 데이터를 메모리에 캐싱하여 동일한 데이터에 대한 반복적인 요청을 캐시에서 제공함 (네트워크 비용 절약)
+- 데이터 요청 실패시 자동 재시도
+
+예제 코드
+
+```jsx
+import { useQuery } from '@tanstack/react-query';
+
+function Products() {
+  const { isLoading, error, data: products } = useQuery(['queryKey'], async () => {
+    return fetch('request url').then((res) => res.json());
+  })
+
+  if (isLoading) return <p>Loading...</p>;
+
+  if (error) return <p>{error}</p>;
+}
+```
