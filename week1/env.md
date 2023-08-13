@@ -78,6 +78,7 @@
 
 ### <span style="color: red">키워드 추가 정리
 - Yarn
+  > Javascript 패키지 매니저로 npm과 마찬가지로 패키지 의존성 관리와 패키지 설치를 도와주는 도구다. 동일한 패키지 매니저인데 yarn을 사용할 경우 패키지 캐싱과 병렬 다운로드 기능을 통해 npm보다 빠른 속도를 제공한다. 기존에 다운로드 했던 패키지면 로컬 캐시를 통해 빠르게 다운로드가 가능하다.
 - Top-level-await [(관련 링크)](https://fe-developers.kakaoent.com/2022/220728-es2022/)
   > Top-level-await를 사용하면 모듈이 하나의 거대한 async함수 처럼 동작하게 되어 최상위 레벨에서도 비동기 처리가 가능하다.      
   **IIAFE**로 promise객체를 반환하는 방법도 있지만 보다 높은 가독성을 제공한다.     
