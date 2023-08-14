@@ -69,11 +69,16 @@ describe - it (주체 - 행위) 중심으로 테스트를 조직화하는 방식
 > 주의❗️  
 > 행위를 명시할 때 **`~된다`** 같은 수동형 표현은 적합하지 않다.
 
-
 ```typescript
 function add(x: number, y: number): number {
     return 1 + 2;
 }
+
+describe('add', () => {
+  it('returns sum of two numbers', () => {
+    expect(add(1, 2)).toBe(3);
+  });
+});
 ```
 
 ---
@@ -81,6 +86,40 @@ function add(x: number, y: number): number {
 ## Describe - Context - It 패턴
 
 테스트 스크립트를 구성하는데 도움이 되는 테스트 코드 구성 패턴
+
+- Describe - 설명할 테스트 대상을 명시한다.
+- Context - 테스트 대상이 놓인 상황을 설명한다.
+- It - 테스트 대상의 행동을 설명한다.
+
+**`한국어로 테스트 스크립트 구성하기`**
+
+- Describe - 테스트 대상을 명사로 작성한다. **`~는, ~(이)가`**
+- Context는 - **`~인 경우, ~할 때, 만약 ~ 하다면`** 과 같이 상황 또는 조건을 기술한다.
+- it - 명사로 작성한 테스트 대상의 행동을 작성한다.
+  - 테스트 대상의 행동은 **`~이다, ~한다, ~를 갖는다`** 가 적절한다.
+  - **`~된다`** 같은 수동형 표현은 좋지 않다.
+
+```typescript
+describe('add', () => {
+  context('인자가 없을 경우', () => {
+    it('0을 반환한다', () => {
+    expect(add()).toBe(0);
+    });
+  });
+
+  context('인자가 하나일 경우', () => {
+    it('인자와 같은값을 반환한다', () => {
+    expect(add(1)).toBe(1);
+    });
+  })
+
+  context('인자가 두개일 경우', () => {
+    it('두 수를 더한 값을 반환한다', () => {
+    expect(add(1, 2)).toBe(3);
+    });
+  })
+});
+```
 
 ---
 
