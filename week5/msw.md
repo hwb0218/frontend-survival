@@ -27,3 +27,9 @@
 ---
 
 ## 3. polyfill(폴리필)
+
+단어의 뜻처럼 빠진 솜을 충전해주는 역할을 한다. JS의 최신문법을 지원하지 않는 런타임(브라우저, Node.js)에 코드 조각, 플러그인을 추가하는 역할
+
+### Babel이 있는데 왠 Polyfill..?
+
+바벨은 ES6+문법을 ES5로 트랜스파일링 하지만, ES5가 지원하지 않는 ES6의 Map, Promise, Set, Object.assigin()은 트랜스파일링이 불가능하다. 때문에 Pollyfill을 통해 코드 조각을 추가해야만 한다.우리가 의식하지 않아도 CRA(create-react-app)와 같은 CLI로 프로젝트 환경을 구성하면 내부적으로 polyfill 관련 core-js, regenerator-runtime 모듈을 세팅하므로 자동으로 폴리필을 구성하고 있었던 것.
