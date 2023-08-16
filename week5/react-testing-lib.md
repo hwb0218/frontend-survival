@@ -30,13 +30,110 @@ Behavior Driven Test(행위 주도 테스트) 방법론이 떠오르면서 주�
 기존엔 React앱은 Enzyme을 이용해 IDT 방법론에 따라 테스트를 수행했으며, 실제 DOM이 아닌
 React Virtual DOM을 기준으로 작성해야 한다. 예를 들면, 컴포넌트가 관리하고 있는 State, 전달되는 Props가 무엇인지에 대해 검증이 용이하다.
 
-#### React Testing Library
+#### React-Testing-Library
 
 React Testing Library는 실제 브라우저 DOM을 기준으로 테스트를 작성하게 된다. React의 컴포넌트의 내부 구현과 변경사항 대해 관심이 없으며, 사용자 브라우저에 렌더되는 UI의 실제 동작을 테스트하는데 초점을 맞춘다.
+
+**`render, screen, fireEvent`**
+
+- render
+
+`render()` 함수는 React-Testing-Library에서 제공하는 모든 쿼리 함수와 기타 유틸리티 함수를 담고 있는 객체를 리턴한다.
+
+```typescript
+import { render } from "@testing-library/react";
+
+
+const { container, getByText, getByRole } = render(<Component />);
+```
+
+- screen
+
+`screen` 객체는 랜더링된 컴포넌트의 DOM 요소를 선택하는데 사용된다.
+
+```typescript
+import { screen } from "@testing-library/react";
+
+render((
+  <TextField
+    label="Name"
+    placeholder="Input your name"
+    text={text}
+    setText={setText}
+  />
+));
+
+screen.getByLabelText('Name');
+```
+
+- fireEvent
+
+`fireEvent` 객체는 컴포넌트 내에서 발생할 수 있는 이벤트를 가상으로 트리거할 수 있다.
+
+```typescript
+import { render, screen, fireEvent } from '@testing-library/react';
+
+render(<Component />);
+const buttonElement = screen.getByRole('button');
+fireEvent.click(buttonElement);
+```
 
 ---
 
 ## 2. given - when - then 패턴
+
+테스트 코드 작성에 사용되는 패턴중 하나로 테스트 시나리오를 구조화하고 가독성을 높일 수 있다.
+
+Given(주어진 상황): 테스트를 하기위해 기본적으로 세팅하는 초기 조건, 초기값
+
+When(동작): 테스트를 하기위한 동작을 설정
+
+then(결과): 동작의 기대 결과가 나왔는지 검증
+
+```typescript
+function add(a: number, b: number) {
+    return a + b;
+}
+
+function subtract(a: number, b: number) {
+    return a - b;
+}
+```
+
+```typescript
+const context = describe;
+
+describe('계산기', () => {
+    context('add 함수를 호출한다면', () => {
+        it('두 수를 더한 값을 반환한다', () => {
+            // Given - 초기 상태, 값
+            const num1 = 5;
+            const num2 = 3;
+
+            // When - 동작 설정
+            const result = add(num1, num2);
+
+            // Then - 기대 결과 검증
+            expect(result).toBe(8);
+        });
+    });
+
+    context('subtract 함수를 호출한다면', () => {
+        it('두 수를 뺀 값을 반환한다', () => {
+            // Given - 초기 상태, 값
+            const num1 = 10;
+            const num2 = 4;
+
+            // When - 동작 설정
+            const result = subtract(num1, num2);
+
+            // Then - 기대 결과 검증
+            expect(result).toBe(6);
+        });
+    });
+});
+
+```
 
 ---
 
@@ -88,4 +185,54 @@ const mockFn = jest.fn((a, b) => a + b);
 
 ## 4. Test fixture
 
-테스트 실행을 위해 베이스라인으로서 사용되는 객체들의 고정된 상태. 테스트 환경을 설정하고 테스트에 필요한 초기 데이터를 제공한다.
+테스트 코드에서 사용되는 초기값, 상태, 객체등을 제공하는 역할을 한다. 테스트를 작성할 때 반복적으로 사용되는 데이터를 테스트 코드에서
+분리하여 관리하는 것
+
+**`fixture`**
+
+```typescript
+// fixture/products.ts
+const products = [
+  {
+    category: 'Fruits', price: '$1', stocked: true, name: 'Apple',
+  },
+];
+
+export default products;
+
+// fixture/index.ts
+import products from "./products";
+
+export default {
+  products,
+};
+```
+
+**`app.test.tsx`**
+
+```typescript
+import { render, screen } from '@testing-library/react';
+
+import App from './App';
+
+import fixtures from '../fixture';
+
+jest.mock('./hooks/useFetchProducts', () => () => fixtures.products);
+
+test('App', () => {
+  render(<App />);
+
+  screen.getByText('Apple');
+});
+```
+
+**`__mocks__`**
+
+Mocking한 custom hooks를 모아놓은 폴더
+
+```typescript
+// __mocks__/useFetchProducts.ts
+const useFetchProducts = jest.fn(); // Mocking custom hooks 
+
+export default useFetchProducts;
+```
