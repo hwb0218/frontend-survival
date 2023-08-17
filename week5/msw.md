@@ -24,7 +24,98 @@
 
 ## 2. MSW(Mock Service Worker)
 
-MSW는 개발 및 테스트 과정에서 API 요청을 가로채서 가짜 응답을 제공하여 실제 서버와의 의존성을 제거하고 테스트를 수행하거나 개발할 수 있게 해준다. 모의 서버와 같은 역할을 한다.
+MSW는 개발 및 테스트 환경에서 API 요청을 가로채서 가짜 응답을 제공하여 실제 서버에 의존하지 않고도 테스트를 수행하거나 개발할 수 있게 해준다. 모의 서버와 같은 역할을 한다.
+
+### MSW 특징
+
+1. 실제 서버가 준비되지 않은 초기 개발 단계에서 작업을 진행할 수 있음.
+2. 가짜 응답을 제공하는 모의 서버를 생성해, 서버에 의존하지 않고 테스트할 수 있음.
+
+**`jest.config.js`**
+
+```javascript
+module.exports = {
+ //...
+  setupFilesAfterEnv: [
+    '@testing-library/jest-dom/extend-expect',
+    '<rootDir>/src/setupTests.ts', // 추가
+  ],
+ //...
+};
+```
+
+**`src/setupTests.ts`**
+
+```typescript
+import 'whatwg-fetch';
+import server from './mocks/server';
+
+// 핸들러가 없거나 응답이 정의되지 않은 요청이 발생했을 때 에러를 발생 
+beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
+
+afterAll(() => server.close());
+
+afterEach(() => server.resetHandlers());
+```
+
+**`src/mocks/server.ts`**
+
+```typescript
+import { setupServer } from 'msw/node';
+
+import handlers from './handlers';
+
+const server = setupServer(...handlers);
+
+export default server;
+```
+
+**`src/mocks/handlers.ts`**
+
+```typescript
+import { rest } from 'msw';
+
+const BASE_URL = 'http://localhost:3000';
+
+const handlers = [
+  rest.get(`${BASE_URL}/products`, (req, res, ctx) => {
+    const products = [
+      {
+        category: 'Fruits', price: '$1', stocked: true, name: 'Apple',
+      },
+    ];
+
+    return res(
+      ctx.status(200),
+      ctx.json({ products }),
+      );
+    }),
+  ];
+
+export default handlers;
+```
+
+**`App.test.ts`**
+
+```typescript
+import { render, screen, waitFor } from '@testing-library/react';
+
+import App from './App';
+
+// 모듈을 mocking하는 jest.mock 불필요
+test('App', async () => {
+  render(<App />);
+
+  await waitFor(() => {
+    screen.getByText('Apple');
+  });
+});
+```
+
+**`Fetch API polyfill: whatwg-fetch`**
+
+Fetch API는 브라우저에서 지원하는 API로 Node에서 사용하기 위해서 polyfill을 구성한다.
+최신 버전의 Node.js에서는 Fetch 사용 가능하다고 함.
 
 ---
 
