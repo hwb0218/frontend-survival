@@ -17,7 +17,7 @@
 Redux의 기반이 되는 단방향 데이터 흐름을 활용한 리액트용 애플리케이션 아키텍처, 곧바로 사용할 수 있는 프레임워크라기 보단 패턴에 가깝다.
 즉 데이터의 흐름을 정의한 하나의 방법이다.
 
-**`FLUX data flow`**
+### FLUX data flow
 
 ![FLUX data flow](../images/flux.png)
 
@@ -32,7 +32,7 @@ Redux의 기반이 되는 단방향 데이터 흐름을 활용한 리액트용 �
 
 컴포넌트에서 복잡한 상태관리가 필요할 경우 useReducer hook을 사용한다.
 
-**`useReducer hook 형태`**
+### useReducer hook 형태
 
 ```jsx
 const ['상태 객체', 'dispatch 함수'] = useReducer('reducer 함수', '초기 상태', '초기 함수');
