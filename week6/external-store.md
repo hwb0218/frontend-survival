@@ -30,6 +30,11 @@ useReducer 함수는 state와 action 객체를 인자로 받아서 새로운 sta
 
 > 어떠한 행동을 나타내는지 정의한 type 속성과 해당 행동과 관련된 데이터를 담은 payload 속성을 담고있다.
 
+**`reducer가 뭔 뜻 이지..?`**
+
+> reduce라는 줄이다라는 의미를 가지는데 reducer의 뜻을 찾아보면 감축기라고 나온다. 뭔소리인가 싶었는데
+> 본래 reduce의 뜻은 변경이라는 의미에 가깝기 때문에 reducer는 현재 상태(previousState)를 새로운 상태(newState)로 변경할 때 사용하는 함수가 된다.
+
 ---
 
 ## 5. useCallback
