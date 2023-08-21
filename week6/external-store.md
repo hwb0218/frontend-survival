@@ -16,11 +16,26 @@
 
 ## 4. useReducer
 
-## 5. useCallback
+컴포넌트에서 복잡한 상태관리가 필요할 경우 useReducer hook을 사용한다.
+
+**`useReducer hook 형태`**
+
+```jsx
+const ['상태 객체', 'dispatch 함수'] = useReducer('reducer 함수', '초기 상태', '초기 함수');
+```
+
+useReducer 함수는 state와 action 객체를 인자로 받아서 새로운 state를 반환한다. dispatch 함수는 상태 업데이트를 트리거하는데 인자로 action 객체를 받는다.
+
+**`action 객체`**
+
+> 어떠한 행동을 나타내는지 정의한 type 속성과 해당 행동과 관련된 데이터를 담은 payload 속성을 담고있다.
 
 ---
 
-React에서 성능을 최적화 할 때 사용하며, 함수를 메모이제이션(memoization)하기 위해 사용하는 hook이다. 컴포넌트는 렌더링 될 때마다 내부에 선언한 함수가 새롭게 생성되는데 useCallback을 통해 기존 함수를 저장하고 재사용한다.
+## 5. useCallback
+
+React에서 성능을 최적화 할 때 사용하며, 함수를 메모이제이션(memoization)하기 위해 사용하는 hook이다.
+컴포넌트는 렌더링 될 때마다 내부에 선언한 함수가 새롭게 생성되는데 useCallback을 통해 기존 함수를 저장하고 재사용한다.
 
 **`메모이제이션(memoization)`**
 
@@ -106,4 +121,4 @@ function Profile({ userId }) {
 
 ### useMemo
 
-useMemo hook또한 메모이제이션이 사용되는데, 기존과 동일한 입력이 발생할 경우 캐싱된 값을 재사용한다.
+useMemo hook또한 메모이제이션 기법이 사용되는데, 기존과 동일한 입력이 발생할 경우 캐싱된 값을 재사용한다.
