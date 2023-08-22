@@ -26,4 +26,5 @@
   * [3. MSW](week5/msw.md)
   * [4. playwright](week5/playwright.md)
 * [6주차](week6/README.md)
-  * [1. External Store](week6/external-store.md);
+  * [1. External Store](week6/external-store.md)
+  * 
