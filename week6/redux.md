@@ -36,11 +36,13 @@ MDN에서는 Proxy 객체와 메서드가 동일하다고 하며, Proxy처럼 �
 
 **`Reflect.get() 정적 메서드`**
 
+객체의 속성 값을 반환한다. target[propertyKey]를 호출하는 것과 같다.
+
 ```javascript
 Reflect.get(target, propertyKey[, receiver])
 ```
 
-객체의 속성 값을 반환한다. target[propertyKey]를 호출하는 것과 같다.
+**`사용 예시`**
 
 ```javascript
 const object1 = {
