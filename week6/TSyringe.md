@@ -1,7 +1,7 @@
 # TSyringe
 
 External Store에 대한 강점을 보여주기 위한 강의인데, 한 번만 봐서는 이해가 잘 안됐다. 알고있지만 낯선 개념인 싱글톤 같은 것 때문인데
-개념적으로 하나의 클래스에선 오직 하나의 인스턴스만 생성한다는 의미는 알고 있었지만, 코드에 패턴을 직접 적용하니 '엥 뭐지?' 라는 생각이 계속 들어 
+개념적으로 하나의 클래스에선 오직 하나의 인스턴스만 생성한다는 의미는 알고 있었지만, 코드에 패턴을 직접 적용하니 '엥 뭐지?' 라는 생각이 계속 들어
 이번 파트는 코드에 대한 이해를 완벽하게 흡수해야겠다.
 
 ## Keyword
@@ -16,6 +16,27 @@ External Store에 대한 강점을 보여주기 위한 강의인데, 한 번만 
 - Typescript용 의존성 주입 컨테이터 라이브러리
 - 클래스, 함수 등의 의존성을 주입할 때 편리한 기능을 제공함.
 - 코드의 가독성, 유지보수성, 테스트 용이성을 향상시킨다.
+
+```typescript
+// stores/store.ts
+import { singleton } from 'tsyringe';
+
+@singleton
+export default class Store {
+  // ...
+}
+
+// components/Counter.tsx
+import { container } from 'tsyringe';
+import Store from '../stores/Store';
+
+export default function Counter() {
+  const store = container.resolve(Store);
+  // ...
+}
+```
+
+> Counter 컴포넌트에서 container.resolve() 메서드를 통해 Store 클래스의 인스턴스를 생성한다.
 
 ---
 
