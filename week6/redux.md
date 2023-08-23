@@ -19,12 +19,13 @@ FLUX는 데이터의 흐름을 단방향으로 정의하는 패턴으로, 실제
 - 2 - 상태는 읽기 전용이다.
   
 > Redux는 내부적으로 데이터의 변경을 감지하기 위해 얕은 비교를 수행하기 때문에 새로운 상태를 생성하여 객체의 깊숙한 데이터를 비교하지 않고도 얕은 비교를 통해 좋은 성능을 유지할 수 있다.
-> 
+>
+
 - 3 - 리듀서는 순수함수여야 한다.
 
 ---
 
-## 2. Reflect [Reflect 정적 메서드](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Reflect#%EC%A0%95%EC%A0%81_%EB%A9%94%EC%84%9C%EB%93%9C)
+## 2. Reflect [정적 메서드](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Reflect#%EC%A0%95%EC%A0%81_%EB%A9%94%EC%84%9C%EB%93%9C)
 
 프로그래밍에서 리플렉션(Reflection)은 런타임에서 객체의 프로퍼티, 메서드를 다이나믹하게 조작하는 프로세스를 말한다.
 
