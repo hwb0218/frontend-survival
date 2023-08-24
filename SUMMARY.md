@@ -29,3 +29,4 @@
   * [1. External Store](week6/external-store.md)
   * [2. TSyringe](week6/TSyringe.md)
   * [3. Redux 따라하기](week6/redux.md)
+  * [4. usestore-ts](week6/usestore-ts.md)
