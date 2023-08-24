@@ -33,6 +33,10 @@ FLUX는 데이터의 흐름을 단방향으로 정의하는 패턴으로, 실제
 - 디스패치 함수(dispatch): 액션을 받는 함수, 디스패치 함수는 **`반드시`** 동기적으로 리듀서에 액션을 전송해야 한다.
 - 저장소(store): 저장소는 애플리케이션의 상태 트리를 가지고 있는 객체다.
 
+### Redux Data Flow
+
+![Redux Data Flow](../images/redux-data-flow.gif)
+
 ---
 
 ## 2. Reflect [정적 메서드](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Reflect#%EC%A0%95%EC%A0%81_%EB%A9%94%EC%84%9C%EB%93%9C)
