@@ -12,7 +12,7 @@ External Store를 사용함으로 concurrent feature에서 발생하는 티어�
 
 ## 1. usestore-ts
 
-
+데코레이터를 이용해 Store, Action Store의 기능을 부여하고 사용할 수 있다. 내부적으로 useSyncExternalStore hook을 사용함.
 
 ---
 
