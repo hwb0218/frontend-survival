@@ -35,7 +35,7 @@ FLUX는 데이터의 흐름을 단방향으로 정의하는 패턴으로, 실제
 
 ### Redux Data Flow
 
-![Redux Data Flow](../images/redux-data-flow.gif)
+![Redux Data Flow / https://reactjsexample.com/redux-concepts-and-data-flow/](../images/redux-data-flow.gif)
 
 ---
 
