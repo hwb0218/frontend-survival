@@ -26,6 +26,13 @@ FLUX는 데이터의 흐름을 단방향으로 정의하는 패턴으로, 실제
 > redux는 State의 불변성을 지켜야하는데, Stete의 변경이 아닌 원본 State를 수정하면 안된다는 뜻이다.
 > 앞서 '상태는 읽기 전용'의 Redux가 상태 변경을 감지하기 위해 얕은 비교를 통한 객체의 주소값을 체크하기 때문에 리듀서는 새로운 객체를 반환해야 한다.
 
+### Redux 구성요소
+
+- 액션(action): 스토어 상태변화 의도를 표현하는 평범한 객체(Plain Object)이다. 행동을 표현하는 type필드를 가져야 한다.
+- 액션 생성자(action creator): 액션 생성자는 액션을 만드는 함수이다.
+- 디스패치 함수(dispatch): 액션을 받는 함수, 디스패치 함수는 **`반드시`** 동기적으로 리듀서에 액션을 전송해야 한다.
+- 저장소(store): 저장소는 애플리케이션의 상태 트리를 가지고 있는 객체다.
+
 ---
 
 ## 2. Reflect [정적 메서드](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Reflect#%EC%A0%95%EC%A0%81_%EB%A9%94%EC%84%9C%EB%93%9C)
