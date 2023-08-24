@@ -13,6 +13,7 @@ External Store를 사용함으로 concurrent feature에서 발생하는 티어�
 ## 1. usestore-ts
 
 데코레이터를 이용해 Store, Action Store의 기능을 부여하고 사용할 수 있다. 내부적으로 useSyncExternalStore hook을 사용함.
+> 하나의 스토어가 가지는 거대함을 분산시키기 위해 여러개의 스토어를 등록함으로서 관심사의 분리가 목적인 것 같다.
 
 ---
 
