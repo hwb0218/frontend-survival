@@ -12,6 +12,8 @@ External Store에 대한 강점을 보여주기 위한 강의인데, 한 번만 
 - reflect-metadata
 - sington (싱글톤)
 
+---
+
 ## 1. TSyringe
 
 - Typescript용 의존성 주입 컨테이터 라이브러리

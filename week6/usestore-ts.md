@@ -8,7 +8,11 @@ External Store를 사용함으로 concurrent feature에서 발생하는 티어�
 - usestore-ts
 - useSyncExternalStore
 
+---
+
 ## 1. usestore-ts
+
+
 
 ---
 
