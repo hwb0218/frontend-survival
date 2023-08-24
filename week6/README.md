@@ -6,5 +6,5 @@
 
 - [x] External Store
 - [x] TSyringe
-- [ ] Redux 따라하기
-- [ ] usestore-ts
+- [x] Redux 따라하기
+- [x] usestore-ts
