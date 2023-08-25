@@ -39,7 +39,8 @@ export default function Counter() {
 }
 ```
 
-> Counter 컴포넌트에서 container.resolve() 메서드를 통해 Store 클래스의 인스턴스를 생성한다.
+> Counter 컴포넌트에서 container.resolve()를 호출하면 Store 클래스에 리플렉션으로 생성자와 멤버 정보를 가져와 객체를 생성한다.
+> 리플렉션 기능을 지원하기 위해 reflect-metadata 모듈을 설치한 것
 
 ---
 
@@ -60,8 +61,7 @@ export default function Counter() {
 - Typescript는 컴파일 타임에 타입 정보를 활용할 수 있지만, 런타임에는 정보를 얻기 어려워 reflect-metadata를 사용해 타입 정보를 런타임에 활용 가능하다.
 - 주로 클래스나 프로퍼티에 메타데이터를 추가하고 읽어오는데 사용한다.
 
-> Tsyringe 같은 DI 라이브러리를 사용할 때 reflect-metadata가 필요한 이유는 타입스크립트의 interface는 자바스크립트로 컴파일 된 후엔 존재하지 않기 때문에 컨테이너에 직접 문자열 토큰을 등록해야 한다. 이를 지원하는 모듈이 reflect-metadata  
-> 컨테이너는 **`토큰값: 구체 클래스`** 를 얻는다는데, 구체 클래스는 new 키워드를 사용해 만들 수 있는 클래스라한다.
+> container 사용시 항상 reflect-metadata 모듈을 import 하는데 이것이 reflection을 지원한다.
 
 ### 사용 예제
 
