@@ -37,6 +37,16 @@
 
 - 브라우저의 history API을 사용하여 URL 경로에 따라 페이지 전환을 관리한다.
 
+```jsx
+import { BrowserRouter } from 'react-router-dom';
+
+root.render((
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+));
+```
+
 ### 2.2 Route
 
 - URL 경로에 따라 Route 컴포넌트를 렌더링하도록 지정할 수 있다.
@@ -61,3 +71,42 @@ function App() {
 ```
 
 ### 2.3 Memory Router
+
+- 브라우저 주소창의 URL을 조작하지 않고, 메모리에서 라우팅을 구성할 수 있다.
+- 테스트 코드, 모바일 앱에서 브라우저 URL을 변경하지 않고 라우팅을 시뮬레이션 할 수 있다.
+
+```javascript
+describe('App', () => {
+  function renderApp(path: string) {
+    render((
+      <MemoryRouter initialEntries={[path]}>
+        <App />
+      </MemoryRouter>
+    ));
+  }
+
+  context('when the current path is “/”', () => {
+    it('renders the home page', () => {
+      renderApp('/');
+
+      screen.getByText(/Hello/);
+    });
+  });
+
+  context('when the current path is “/about”', () => {
+    it('renders the about page', () => {
+      renderApp('/about');
+
+      screen.getByText(/About/);
+    });
+  });
+});
+```
+
+---
+
+## 추가 키워드
+
+### Routes
+
+- Routes 컴포넌트는 여러 Route를 감싸서 그 중 규칙이 일치하는 라우트 단 하나만을 렌더링 시켜주는 역할을 한다.
