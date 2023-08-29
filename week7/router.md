@@ -79,3 +79,32 @@ root.render((
   </Route>
 </Routes>
 ```
+
+- 중첩라우팅을 구성 후 `<Outlet>` 컴포넌트로 상위 컴포넌트를 레이아웃화 할 수 있다.
+
+```jsx
+import { Outlet } from 'react-router-dom';
+
+const routes = [
+  {
+    path: "/",
+    element: <App1 />,
+    errorElement: <NotFound />,
+    children: [
+      { index: true, element: <First /> },
+      { path: "second", element: <Second /> },
+      { path: "third", element: <Third /> },
+    ],
+  },
+  {
+    path: "/app2",
+    element: <App2 />,
+    errorElement: <NotFound />,
+    children: [
+      { index: true, element: <First /> },
+      { path: "second", element: <Second /> },
+      { path: "third", element: <Third /> },
+    ],
+  },
+];
+```
