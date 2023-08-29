@@ -32,3 +32,5 @@
   * [4. usestore-ts](week6/usestore-ts.md)
 * [7주차](week7/README.md)
   * [1. Routing](week7/routing.md)
+  * [2. React Router](week7/react-router.md)
+  * [3. Router](week7/router.md)
