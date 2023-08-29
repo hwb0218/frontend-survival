@@ -108,3 +108,31 @@ const routes = [
   },
 ];
 ```
+
+```jsx
+import { Outlet } from "react-router-dom";
+
+// App1.js
+function App1() {
+  return (
+    <div>
+      <h1>This is App1 Header</h1>
+      <Outlet />
+      <h2>This is App1 Footer</h2>
+    </div>
+  );
+}
+ 
+function App2() {
+  return (
+    <div>
+      <h1>This is App2 Header</h1>
+      <Outlet />
+      <h2>This is App2 Footer</h2>
+    </div>
+  );
+}
+// App2.js
+```
+
+- 구성한 중첩 라우팅은 `<Outlet>`을 통해 자식 컴포넌트를 표현하고 상위 컴포넌트를 고정적으로 보여줄 수 있다.
