@@ -74,6 +74,7 @@ function App() {
 
 - 브라우저 주소창의 URL을 조작하지 않고, 메모리에서 라우팅을 구성할 수 있다.
 - 테스트 코드, 모바일 앱에서 브라우저 URL을 변경하지 않고 라우팅을 시뮬레이션 할 수 있다.
+- initialEntries 속성은 Memory Router가 초기화 될 때 라우팅에 사용될 경로 배열을 지정한다.
 
 ```javascript
 describe('App', () => {
