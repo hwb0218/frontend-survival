@@ -101,7 +101,7 @@ fetct API의 response 객체의 body 속성은 ReadableStream의 구체적인 �
 
 **`URL Encoding`**
 
-> URL은 아스키 코드의 문자 집합만 사용할 수 있어, 한글과 같은 문자열을 URL에 삽입할 경우 URL Encoding으로 아스키 형태로 변환한다.
+> URL은 아스키 코드의 문자 집합만 사용할 수 있어, 한글과 같은 문자열을 URL에 삽입할 경우 URL Encoding으로 전송할 수 있는 형태로 변환한다. 이 때 변환하는 규칙은 UTF-8을 따르며, 한글 문자 1개는 3바이트로 인코딩 된다.
 
 ---
 
