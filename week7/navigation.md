@@ -52,7 +52,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 <Navigate delta={-1} /> 
 
 const navigate = useNavigate();
-navigate(-1);
+navigate(-1); // 이전 페이지로 이동
 ```
 
 #### 옵션 객체
