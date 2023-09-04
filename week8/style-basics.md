@@ -9,6 +9,8 @@
 
 ## className
 
+스타일을 설정할 때 className을 사용하는 이유는 JSX는 babel에 의해 자바스크립트 코드로 변환되기 때문에 class는 예약어로 인식하여 JSX는 HTML의 class가 아닌 className을 사용한다. 스타일 설정 시 객체를 전달한다.
+
 ## 의미있는 마크업 (Semantic Markup)
 
 ### 정의
