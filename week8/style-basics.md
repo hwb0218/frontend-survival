@@ -11,6 +11,30 @@
 
 스타일을 설정할 때 className을 사용하는 이유는 JSX는 babel에 의해 자바스크립트 코드로 변환되기 때문에 class는 예약어로 인식하여 JSX는 HTML의 class가 아닌 className을 사용한다. 스타일 설정 시 객체를 전달한다.
 
+### 객체의 키, 벨류를 이용한 클래스 문자열 사용하기
+
+```jsx
+function classNames(classes) {
+  return Object.entries(classes)
+    .filter(([key, value]) => value)
+    .map(([key, value]) => key)
+    .join(' ');
+}
+
+const classes = {
+  'maybeClass': true,
+  'otherClass': true,
+  'probablyNotClass': false,
+};
+
+const myClassNames = classNames(classes);
+// Output: "maybeClass otherClass"
+
+<li className={myClassNames} />
+```
+
+> myClassNames 변수에 classes 객체에서 true로 설정된 클래스 이름이 공백으로 구분된 문자열로 저장된다.
+
 ## 의미있는 마크업 (Semantic Markup)
 
 ### 정의
