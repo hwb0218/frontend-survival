@@ -46,6 +46,12 @@ Flexbox를 사용하면 자식 요소들을 효과적으로 정렬하고 요소 
 
 ![https://studiomeal.com/archives/197](../images/Flexbox.jpeg)
 
+#### Grid [링크](https://studiomeal.com/archives/533)
+
+Grid는 수평선, 수직선으로 이루어진 이차원 레이아웃 시스템이다. Flex와 동일하게 컨테이너와 아이템으로 레이아웃을 잡을 수 있다.
+
+![https://studiomeal.com/archives/533](../images/grid.jpeg)
+
 #### Grid
 
 #### 뷰포트 메타 태그
