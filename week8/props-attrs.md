@@ -20,6 +20,7 @@ type ParagraphProps = {
 
 const Paragraph = styled.p<ParagraphProps>`
   color: ${(props) => (props.active ? '#F00' : '#888')};
+  
   ${(props) => props.active && css`
     font-weight: bold;
   `}
@@ -29,3 +30,24 @@ const Paragraph = styled.p<ParagraphProps>`
 ---
 
 ## 2. attrs
+
+- 컴포넌트에 기본 속성을 추가할 때 사용한다.
+- 불필요하게 반복되는 속성을 처리할 때 유용 (button을 만들 때 적극 채용)
+
+<!-- type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & { type?: 'submit' } -->
+```tsx
+import styled, { css } from 'styled-components';
+
+type ButtonProps = {
+  type?: 'button' | 'submit' | 'reset';
+  active?: boolean;
+}
+
+const Button = styled.button.attrs<ButtonProps>((props) => ({
+  type: props.type ?? 'button',
+}))<ButtonProps>`
+  border: 1px solid #888;
+  background: transparent;
+  cursor: pointer;
+`
+```
