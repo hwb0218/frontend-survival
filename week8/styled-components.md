@@ -48,6 +48,8 @@ const StyledButton = styled.button`
 `;
 ```
 
+---
+
 ## 추가 키워드
 
 ### Tagged templates literals [링크](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Template_literals)
@@ -87,8 +89,7 @@ console.log(output);
 next.js는 SSR(Server Side Rendering) 프레임워크로 서버에서 pre-redering된 HTML 문서를 제공한다.
 이를 통해 검색 엔진이 웹 사이트를 분석할 수 있도록 검색 엔진 최적화(SEO)를 제공한다.
 
-초기 서버 사이드 렌더링 후 클라이언트 사이드 라우팅이 발생할 때 styled-components의 class name의 해시값이 서버와 클라이언트 간에 불일치할 수 있어 에러가 발생한다.
-
-때문에 `babel-plugin-styled-components`를 사용해 서버와 클라이언트 간에 일관된 class name을 생성해 문제를 해결할 수 있다.
+초기 서버 사이드 렌더링 후 클라이언트 사이드 렌더링이 발생할 때 styled-components의 class name의 해시값이 서버와 클라이언트 간에 불일치할 수 있어 에러가 발생한다.
+이는 `babel-plugin-styled-components`를 사용해 서버와 클라이언트 간에 일관된 class name을 생성해 문제를 해결할 수 있다.
 
 또한, 보다 편리한 디버깅을 위해 컴포넌트 이름을 class name의 해쉬값 접두사로 추가한다.
