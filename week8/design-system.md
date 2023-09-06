@@ -52,8 +52,6 @@ Grid는 수평선, 수직선으로 이루어진 이차원 레이아웃 시스템
 
 ![https://studiomeal.com/archives/533](../images/grid.jpeg)
 
-#### Grid
-
 #### 뷰포트 메타 태그
 
 ---
