@@ -10,7 +10,7 @@
 
 ## 1. 반응형 웹 디자인(Responsive web design)
 
-하나의 웹 사이트에서 다양한 디바이스의 화면 크기에 따라 컨텐츠가 자동으로 변화하는 웹 디자인 접근 방식
+하나의 웹 사이트가 다양한 디바이스의 화면에 따라 컨텐츠 크기가 자동으로 변화하는 웹 디자인 방식
 
 ![https://ko.wikipedia.org/wiki/%EB%B0%98%EC%9D%91%ED%98%95_%EC%9B%B9_%EB%94%94%EC%9E%90%EC%9D%B8](../images/960px-Content-is-like-water.svg.png)
 
