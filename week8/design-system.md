@@ -54,6 +54,15 @@ Grid는 수평선, 수직선으로 이루어진 이차원 레이아웃 시스템
 
 #### 뷰포트 메타 태그
 
+모바일웹이나 반응형웹에서 각각의 기기장치를 인식할 때 사용하는 중요한 태그, 사용하지 않을시 축소된 페이지를 보게된다.
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+- width=device-width: 디바이스의 화면 너비를 따르도록 페이지 너비를 설정
+- initial-scale=1.0: 브라우저에서 초기 페이지 로드시 확대 / 축소 수준을 설정
+
 ---
 
 ## 2. 디자인 시스템(Design System)
