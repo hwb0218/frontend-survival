@@ -50,3 +50,45 @@ export default function useFetchProducts() {
 ## intl API [링크](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl)
 
 > 국가별로 상이한 날짜, 통화 표기법등 데이터 포맷팅 문제를 해결할 수 있도록 API를 제공한다.
+
+## Axios vs Fetch
+
+Fetch API는 모던 브라우저에서 내장된 API로 따로 설치할 필요가 없다.
+Axios는 서드파티 라이브러리로 CDN이나 npm, yarn 같은 패키지 매니저를 통해 설치한다.
+
+### 문법
+
+두 방법 모두 첫번째 인자로 요청 url과 두번째는 선택적 인자로 option 객체를 받는다.
+
+Fetch는 GET을 제외한 요청시 option 객체의 method 속성 설정이 필요하다.
+
+Axios는 axios 객체에 http request method가 정의되어 있다.
+
+```javascript
+fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({}),
+});
+```
+
+```javascript
+axios.get(url, {
+  // 설정 옵션
+});
+```
+
+### JSON 데이터 처리
+
+Fetch는 then 매서드에서 처리된 promise를 반환한다. 이 때 JSON 포멧이 아니므로 **`.json()`** 메서드를 사용해 직렬화를 수행한다. 해당 메서드를 사용하면 resolve된 promise를 반환한다.
+
+```javascript
+const url = "https://jsonplaceholder.typicode.com/todos";
+
+axios.get(url).then((response) => console.log(response.data));
+
+```
+
+Axios는 기본적으로 JSON 포멧의 응답 데이터를 반환한다.
