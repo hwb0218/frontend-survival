@@ -51,12 +51,12 @@ export default function useFetchProducts() {
 
 > 국가별로 상이한 날짜, 통화 표기법등 데이터 포맷팅 문제를 해결할 수 있도록 API를 제공한다.
 
+---
+
 ## 6. Axios vs Fetch
 
 Fetch API는 모던 브라우저에서 내장된 API로 따로 설치할 필요가 없다.
 Axios는 서드파티 라이브러리로 CDN이나 npm, yarn 같은 패키지 매니저를 통해 설치한다.
-
----
 
 ### 문법
 
