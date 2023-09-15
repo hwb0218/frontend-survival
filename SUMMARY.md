@@ -45,3 +45,4 @@
 * [9주차](week9/README.md)
   * [1. 개발하기 전 준비](week9/preparation.md)
   * [2. 목록보기](week9/product-list.md)
+  * [3. 상품 상세 보기](week9/product-detail.md)
