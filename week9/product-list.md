@@ -94,3 +94,15 @@ axios.get(url).then((response) => console.log(response.data));
 ```
 
 `Axios`는 기본적으로 JSON 포멧의 응답 데이터를 반환한다.
+
+### 자동 문자열 변환(stringify)
+
+서버로 데이터를 전송할 때 JSON 문자열로 직렬화를 해야한다.
+
+Fetch는 명시적으로 header의 Content-type을 application/json으로 설정하고,
+request body에 전달할 데이터는 JSON 문자열로 직렬화 후 할당한다.
+
+Axiso는 Content-type을 default로 application/json으로 설정한다. request body 자동으로 직렬화를 수행한다.
+request body에 전달할 데이터를 명시적으로 직렬화하지 않아도 된다.
+
+<!-- TODO: 내용 더 추가하기 -->
