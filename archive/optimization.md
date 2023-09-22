@@ -96,7 +96,7 @@ function removeSpecialCharacter(str) {
 ### 페이지(라우트) 단위의 코드스플리팅
 
 - lazy 함수를 사용하면 페이지 전환 시 런타임에 해당 컴포넌트들을 import한다.
-- Suspense는 라우팅시 컴포넌트를 동적으로 로드하므로 리소스가 로딩되는 동안 로딩 화면을 보여준다.
+- Suspense는 라우팅시 컴포넌트를 동적으로 로드하므로 이 로딩되는 동안 로딩 화면을 보여준다.
 
 ```jsx
 import React, { Suspense, lazy } from 'react'
