@@ -51,4 +51,4 @@
 
 ## 지식저장소
 
-* [0주차](archive/jwt.md)
+* [웹 성능 최적화](archive/optimization.md)
