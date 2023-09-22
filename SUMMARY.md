@@ -52,3 +52,4 @@
 ## 지식저장소
 
 * [웹 성능 최적화](archive/optimization.md)
+* [컴파일러, 인터프리터 언어](archive/interpreter-compiler.md)
