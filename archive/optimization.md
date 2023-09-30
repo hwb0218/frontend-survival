@@ -131,3 +131,37 @@ export default function App() {
 **`/view Page`**
 
 ![View Page](../images/%EC%BD%94%EB%93%9C%EC%8A%A4%ED%94%8C%EB%A6%AC%ED%8C%852.png)
+
+---
+
+## 애니메이션 분석(Reflow, Repaint)
+
+일반적으로 디스플레이 주사율은 초당 60프레임인데, 브라우저가 초당 20~30개의 화면밖에 못 그릴경우 애니메이션이 버벅이는 현상인 쟁크가 발생한다.
+
+### 브라우저가 60프레임을 그리지 못하는 이유?
+
+먼저 브라우저 렌더링 과정에 대해 알아야한다.
+
+#### 브라우저 렌더링 과정(Critical Rendering Path)
+
+1. 브라우저가 HTML, CSS, Javascript 퍄일등의 리소스를 다운로드 받음.
+2. HTML, CSS를 가공해 각각 DOM, CSSOM 트리 형태의 자료구조로 변환.
+3. DOM과 CSSOM을 병합해 Render Tree를 생성.
+4. Layout 단계에서 컨텐츠의 위치, 크기에 대해 계산을 수행한다.
+5. Paint 단계에서 렌더트리의 각 노드를 실제 픽셀로 변환한다.
+6. 레이어를 합성해 실제 화면에 나타내는 composite 단계를 수행한다.
+
+> 컨텐츠의 레이아웃, 스타일이 변경되면 해당 flow를 지속적으로 수행한다. Reflow, Repaint가 자주 발생할 경우 초당 60프레임을 보장받지 못하고 쟁크 현상이 발생하게 되는 것
+
+### Reflow
+
+DOM 노드의 추가, 크기 및 위치변경 발생 시 레이아웃을 다시 계산하는 Reflow가 발생해 Render Tree를 재생성한다.
+이 과정에서 픽셀값의 변경도 발생하므로 paint 단계 또한 수행된다. 즉, Critical Rendering Path의 모든 과정이 재실행된다.
+
+> HTML, CSS 파싱 > 렌더 트리 구축 > 레이아웃 > 리페인트 > 레이어 합성
+
+### Repaint
+
+DOM 노드의 스타일 변경 발생 시 리소스 파싱과 Render Tree를 재성성하지만, 레이아웃 단계를 생략하고 페인트과정만 수행된다.
+
+> HTML, CSS 파싱 > 렌더 트리 구축 > 리페인트 > 레이어 합성
