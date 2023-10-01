@@ -93,7 +93,7 @@ function removeSpecialCharacter(str) {
 - 페이지별로 분할하거나 공통으로 사용하는 모듈별로 분할하는 패턴을 사용할 수 있다.
 - 코드 스플리팅을 적용하는 주체는 리액트가 아닌 webpack, parcel, vite등의 번들러에서 지원한다.
 
-### 페이지(라우트) 단위의 코드스플리팅
+### 페이지(라우트) 단위의 코드 스플리팅
 
 - lazy 함수를 사용하면 페이지 전환 시 런타임에 해당 컴포넌트들을 import한다.
 - Suspense는 라우팅시 컴포넌트를 동적으로 로드하므로 이 로딩되는 동안 로딩 화면을 보여준다.
@@ -131,6 +131,43 @@ export default function App() {
 **`/view Page`**
 
 ![View Page](../images/%EC%BD%94%EB%93%9C%EC%8A%A4%ED%94%8C%EB%A6%AC%ED%8C%852.png)
+
+### 컴포넌트 단위의 코드 스플리팅
+
+- 라우트 단위와 동일하게 lazy 함수를 사용해 런타임에 컴포넌트를 동적으로 로드한다.
+
+```jsx
+const LazyImageModal = lazy(() => import('./components/ImageModal'));
+
+function App() {
+    const [showModal, setShowModal] = useState(false)
+
+    return (
+        <div className="App">
+            <Header />
+            <InfoTable />
+            <ButtonModal onClick={() => { setShowModal(true) }}>올림픽 사진 보기</ButtonModal>
+            <SurveyChart />
+            <Footer />
+            <Suspense fallback={null}>
+                {showModal ? <LazyImageModal closeModal={() => { setShowModal(false) }} /> : null}
+            </Suspense>
+        </div>
+    )
+}
+```
+
+### 스플리팅 결과
+
+이미지 모달 버튼을 클릭하는 순간 청크 파일을 다운로드한다.
+
+**`코드 스플리팅 전`**
+
+![코드 스플리팅 전](../images/컴포넌트-코드스플리팅.png)
+
+**`코드 스플리팅 후`**
+
+![코드 스플리팅 후](../images/컴포넌트-코드스플리팅1.png)
 
 ---
 
