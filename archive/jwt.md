@@ -69,7 +69,7 @@ HTTP의 이러한 특징으로 인해 아래의 방법으로 클라이언트 인
 
 - 토큰의 용량이 클 경우 네트워크 통신 오버헤드가 발생할 수 있다.
 - 토큰의 Payload는 암호화되지 않으므로 민감한 정보를 담을 수 없다.
-- 제3자가 토큰을 탈취했을 경우 대처가 어렵다. (Refresh Token을 이용해 예방)
+- 제3자가 토큰을 탈취했을 경우 대처가 어렵다. (Expires, Refresh Token을 이용해 예방)
 
 ### 세션 VS 토큰
 
@@ -87,8 +87,33 @@ HTTP의 이러한 특징으로 인해 아래의 방법으로 클라이언트 인
 
 ## JWT(Json Web Token)
 
+JWT는 요청에 필요한 정보를 암호화시킨 JSON 토큰을 의미한다. JWT는 토큰 기반 인증으로 HTTP 헤더에 담아 서버가 클라이언트를
+식별하는 방법이다.JWT는 JSON 데이터를 base64 URL-safe Encode를 통해 인코딩하며, 토큰 내부에는 위변조 방지를 위해 개인키(secret key)를 통한 전자서명이 포함되어있다. 따라서 토큰을 전달받은 서버는 검증(verify)을 통해 완료되면 응답을 전송한다.
+
+### JWT 구조
+
+JWT는 **`.`** 구분자로 나누어지는 세가지 문자열의 조합이다.
+각각 왼쪽에서부터 `Header, Payload, Signature`를 의미한다.
+
+![JWT 구조](../images/JWT%EA%B5%AC%EC%A1%B0.png)
+
+#### Header
+
+- typ: 토큰 유형
+- alg: 해시 알고리즘
+
+#### Payload
+
+- 토큰에서 사용할 정보 Claim으로 구성되어 있다.
+- 시스템에서 실제로 사용될 정보를 담는다.
+
+#### Signature
+
+- 헤더, 페이로드를 base64 url방식 인코딩한 후 Hedaer에 명시한 해시 알고리즘을 적용하고 secret key로 서명한 전자서명이 담겨있다.
+
 ---
 
 ## 참고
 
+[JWT Docs](https://jwt.io/introduction)  
 [JWT 토큰 인증 이란? (쿠키 vs 세션 vs 토큰)](https://inpa.tistory.com/entry/WEB-%F0%9F%93%9A-JWTjson-web-token-%EB%9E%80-%F0%9F%92%AF-%EC%A0%95%EB%A6%AC)
