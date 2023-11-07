@@ -49,6 +49,10 @@
   * [4. 장바구니 보기](week9/cart-view.md)
   * [5. 장바구니에 상품 담기](week9/cart-product.md)
 
+## REACT
+
+* [useReducer](react/useReducer.md)
+
 ## Archive
 
 * [웹 성능 최적화](archive/optimization.md)
