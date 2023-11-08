@@ -52,6 +52,7 @@
 ## REACT
 
 * [useReducer](react/useReducer.md)
+* [Context API](react/context-api.md)
 
 ## Archive
 

@@ -83,3 +83,7 @@ export function reducer(
 }
 
 ```
+
+```tsx
+const [person, dispatch] = useReducer(personReducer, initPersonState);
+```
